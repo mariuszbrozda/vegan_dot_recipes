@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+ <header>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="brand-logo">
+                <a href="" >
+                    
+                </a>
+            </div>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="side-nav" id="mobile-demo">
+                <li class="nav-item-hamburger">
+                    <a class="nav-link-hamburger" href="">Starters</a>
+                </li>
+                <li class="nav-item-hamburger">
+                    <a class="nav-link-hamburger" href="">Mains</a>
+                </li>
+                <li class="nav-item-hamburger">
+                    <a class="nav-link-hamburger" href="">Smoothies</a>
+                </li>
+                <li class="nav-item-hamburger">
+                    <a class="nav-link-hamburger" href="">Juices</a>
+                </li>
+                <li class="nav-item-user">
+                    <p class="nav-link-user"> USER</p>
+                </li>
+                <li class="nav-item-user_logout">
+                    <a class="nav-link_logout" href="">Log out</a>
+                </li>
+            </ul> 
+        </div>
+    </nav>
+ </header>
+ 
+ <section class='nav-tabs-wrapper'>
+    <ul id="nav-mo" class="nav nav-tabs hide-on-med-and-down">
+        <li class="nav-item">
+            <a class="nav-link" href="">Starters</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Mains</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Smoothies</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Juices</a>
+        </li>
+        {% block user_logout %}
+        {% endblock %}
+    </ul>
+</section>
+       
+
+<section class='content'>
+ <div class='container-fluid'>
+    {% block content %}
+    {% endblock %}
+ </div>
+</section> 
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.collapsible').collapsible();
+            $('select').material_select();
+            $(".button-collapse").sideNav();
+        });
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+        });
+    </script>
+
+</body>
+<footer class='footer col-xs-12 col-sm-12 col-md-12'>
+        <p> Copyrights Mariusz Brozda &#169; </p>
+    </footer>
+</html>
