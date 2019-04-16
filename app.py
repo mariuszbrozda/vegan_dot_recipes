@@ -16,16 +16,68 @@ mongo = PyMongo(app)
 @app.route("/log_in", methods=["GET", "POST"])
 def log_in():
     if request.method == "POST":
-        
+        session['username'] = request.form['username']
         return redirect(url_for('main_page'))
-    return render_template("index.html")
+    return render_template("log_in.html")
     
     
 @app.route("/main_page", methods=["GET", "POST"])
 def main_page():
+    username = session.get('username')
+    return render_template("main_page.html", user=username )
     
-    return render_template("main_page.html" )
 
+@app.route("/my_recipes", methods=["GET", "POST"])
+def my_recipes():
+    username = session.get('username')
+    return render_template("my_recipes.html", user=username )
+
+
+## ------------------NAV TABS ROUTES -----
+
+@app.route("/starters", methods=["GET", "POST"])
+def starters():
+    username = session.get('username')
+    return render_template("starters.html", user=username )
+    
+    
+@app.route("/main_courses", methods=["GET", "POST"])
+def main_courses():
+    username = session.get('username')
+    return render_template("main_courses.html", user=username )
+    
+    
+@app.route("/desers", methods=["GET", "POST"])
+def desers():
+    username = session.get('username')
+    return render_template("desers.html", user=username )
+    
+    
+@app.route("/smoothies", methods=["GET", "POST"])
+def smoothies():
+    username = session.get('username')
+    return render_template("smoothies.html", user=username )
+    
+    
+@app.route("/juices", methods=["GET", "POST"])
+def juices():
+    username = session.get('username')
+    return render_template("juices.html", user=username )
+    
+    
+
+## ------------------CRUD OPERATIONS -----
+
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    username = session.get('username')
+    return render_template("add_recipe.html", user=username )
+
+
+@app.route('/edit_recipe/')
+def edit_recipe():
+    
+    return render_template('edit_recipe.html')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

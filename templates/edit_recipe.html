@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class='container header_main_page'>
+    <h3> Edit your recipe {USERNAME} </h3>
+</div>
+
+<section class='container add_recipe_content'>
+    <div class="row">
+        <div class='col-md-6  add_recipe_form_wrapper'>
+            <div class='col-md-3'></div>
+                <form action="" method="POST"  class="add_recipe_form col-md-9">
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">poll</i>
+                                <select id="category" name="category_name">
+                                    <option value="" disabled selected>Choose Recipe Category</option>
+                                  
+                                      <option value=""></option>
+                                  
+                                </select>
+                                <label> Recipe Category</label></label>
+                            </div>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">assignment</i>
+                            <input id="task_name" name="task_name" type="text">
+                            <label for="icon_prefix">Recipe Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Recipe Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Recipe Ingriediens</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Recipe preparation</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Nutrition Information</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Alergens</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Cousine</label>
+                        </div>
+                    </div>
+                </form>
+        </div>
+        <div class='col-md-6 add_recipe_photo_wrapper'>
+            <div class='row'>
+                <div class='col-md-1'></div>
+                <div class="add_recipe_photo col-md-10">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top add_recipe_img" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
+                </div>
+                <div class='col-md-1'></div>
+            </div>
+            <div class='row'>
+                <div class='col-md-4'></div>
+                <button type="button" class="btn btn-sm btn-outline-secondary upload_photo_btn col-md-4">Upload photo</button>
+                <div class='col-md-4'></div>
+            </div>
+            <div class='row'>
+                <div class='col-md-1'></div>
+                <button type="button" class="add_recipe_btn btn btn-sm btn-outline-secondary col-md-4">Update recipe</button>
+                <div class='col-md-2'></div>
+                <button type="button" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-4">Cancel</button>
+                <div class='col-md-1'></div>
+            </div>
+            </div>
+        </div>
+     
+    </div>
+</section>
+
+<div class='col-xs-12 col-sm-12 col-md-12'>
+<footer class='footer'>
+   <p> Copyrights Mariusz Brozda &#169; </p>
+</footer>
+</div>
+{% endblock %}

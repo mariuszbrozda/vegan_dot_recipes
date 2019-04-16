@@ -12,31 +12,34 @@
 <body>
  <header>
     <nav>
-        <div class="nav-wrapper">
-            <div class="brand-logo">
-                <a href="" >
-                    
+        <div class="nav-wrapper" href="{{ url_for('main_page') }}">
+            <div class="brand-logo" href="{{ url_for('main_page') }}">
+                <a  href="{{ url_for('main_page') }}" >
+        
                 </a>
             </div>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
                 <li class="nav-item-hamburger">
-                    <a class="nav-link-hamburger" href="">Starters</a>
+                    <a class="nav-link-hamburger" href="{{ url_for('starters') }}">Starters</a>
                 </li>
                 <li class="nav-item-hamburger">
-                    <a class="nav-link-hamburger" href="">Mains</a>
+                    <a class="nav-link-hamburger" href="{{ url_for('main_courses') }}">Main courses</a>
                 </li>
                 <li class="nav-item-hamburger">
-                    <a class="nav-link-hamburger" href="">Smoothies</a>
+                    <a class="nav-link-hamburger" href="{{ url_for('desers') }}">Desers</a>
                 </li>
                 <li class="nav-item-hamburger">
-                    <a class="nav-link-hamburger" href="">Juices</a>
+                    <a class="nav-link-hamburger" href="{{ url_for('smoothies') }}">Smoothies</a>
+                </li>
+                <li class="nav-item-hamburger">
+                    <a class="nav-link-hamburger" href="{{ url_for('juices') }}">Juices</a>
                 </li>
                 <li class="nav-item-user">
-                    <p class="nav-link-user"> USER</p>
+                    <a class="nav-link-user"> {{user}}</a>
                 </li>
                 <li class="nav-item-user_logout">
-                    <a class="nav-link_logout" href="">Log out</a>
+                    <a class="nav-link_logout" href="{{ url_for('log_in') }}">Log out</a>
                 </li>
             </ul> 
         </div>
@@ -44,21 +47,29 @@
  </header>
  
  <section class='nav-tabs-wrapper'>
+    
     <ul id="nav-mo" class="nav nav-tabs hide-on-med-and-down">
         <li class="nav-item">
-            <a class="nav-link" href="">Starters</a>
+            <a class="nav-link" href="{{ url_for('starters') }}">Starters</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Mains</a>
+            <a class="nav-link" href="{{ url_for('main_courses') }}">Main courses</a>
+        </li>
+        <li class="nav-item-hamburger">
+            <a class="nav-link" href="{{ url_for('desers') }}">Desers</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Smoothies</a>
+            <a class="nav-link" href="{{ url_for('smoothies') }}">Smoothies</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Juices</a>
+            <a class="nav-link" href="{{ url_for('juices') }}">Juices</a>
         </li>
-        {% block user_logout %}
-        {% endblock %}
+        <li class="nav-item">
+            <a class="nav-link p_user" > {{user}}</a>
+        </li>
+        <li class="nav-item user_logout">
+            <a class="nav-link logout" href="{{ url_for('log_in') }}">Log out</a>
+        </li>
     </ul>
 </section>
        
