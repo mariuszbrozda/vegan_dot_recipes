@@ -55,8 +55,9 @@ div.nav-wrapper {
     color: #5A6466;
     text-shadow: 1px 1px 1px solid black;
     margin-top: 61px;
-    margin-left: 500px;
+    margin-left: 320px;
     padding-top: 10px;
+    display: block;
 }
 
 
@@ -202,6 +203,8 @@ div.log_in_box{
 .recipes,
 .row,
 .card,
+.recipe_details,
+.recipe_content_wrapper,
 .header_main_page,
 .add_recipe_photo_wrapper,
 .add_recipe_content,
@@ -218,14 +221,23 @@ div.log_in_box{
 }
 
 .card-text {
-    padding: 10px;
+    
     margin-bottom: 1rem;
+    min-height: 75px;
 }
+
+.card_header{
+    min-height: 40px;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+
 
 .btn-view {
     margin-left: 260px;
     padding-bottom: 5px;
-    
+    margin: 10px;
 }
 
 
@@ -268,27 +280,29 @@ div.log_in_box{
 
 
 .add_recipe_form_wrapper{
-   height: 800px;
+   height: auto;
 }
 
 .add_recipe_photo_wrapper{
-    height: 800px;
+    height: auto;
     
 }
 
 .add_recipe_form{
+    margin-bottom: 100px;
     padding-left: 50px;
-    height: 900px;
+    height: auto;
     
 }
 
 .add_recipe_photo{
-    margin-top: 90px;
+    margin-top: 80px;
+    margin-bottom: 60px;
     
 }
 
 .add_recipe_img {
-    height: 250px;
+    height: 410px;
     width: 100%;
     display: block;
     
@@ -309,6 +323,128 @@ div.log_in_box{
     margin-top: 50px;
     
 }
+
+.recipe_content_wrapper{
+    margin-top: 100px;
+}
+
+.recipe_details{
+    margin-top: 40px;
+}
+
+.recipe_name{
+    margin-bottom: 20px;
+}
+.descripton_p{
+    font-size: 1em;
+    line-height: 1.375em;
+    padding: 10px 10px;
+}
+
+
+
+/* TABLES   */
+
+table {
+  margin-top: 20px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+
+
+
+.align-center{
+    text-align: center;
+}
+
+.align-left{
+    text-align:  left;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.add_to_favorities_btn{
+    margin-top: 120px;  
+}
+
+/* END */
+
+
+
+
+.fa-facebook{
+    padding: 5px;
+    color: #3B5998;
+    font-size: 35px;
+}
+
+.fa-twitter{
+    padding: 5px;
+    color: #1DA1F2;
+    font-size: 35px;
+}
+
+.fa-instagram{
+    padding: 5px;
+    color: #B4337D;
+    font-size: 35px;
+}
+
+.fa-copy{
+    padding: 5px;
+    color: #1F1F1F;
+    font-size: 35px;
+}
+
+
+
+.social_media_share {
+  display: inline-block;
+  padding:  0;
+  height: 40px;
+  margin-top: 120px;
+}
+
+
+.social_media_share >h3{
+    margin-top:  10px;
+    
+}
+
+
+.bon_apetite{
+    margin-top: 140px;
+}
+
+
+.recipe_views{
+    height: 35px;
+    margin-left: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

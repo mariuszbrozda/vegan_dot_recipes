@@ -8,23 +8,23 @@
     <div class="row">
         <div class='col-md-6  add_recipe_form_wrapper'>
             <div class='col-md-3'></div>
-                <form action="" method="POST"  class="add_recipe_form col-md-9">
+                <form id="form" action='{{url_for("insert_recipe")}}'  method="POST"  class="add_recipe_form col-md-9">
                     <div class="row">
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">poll</i>
-                                <select id="category" name="category_name">
-                                    <option value="" disabled selected>Choose Recipe Category</option>
-                                  
-                                      <option value=""></option>
-                                  
+                                <select id="category" name="recipe_category_name">
+                                    <option value="" disabled selected>Choose Category</option>
+                                      {% for cat in recipes_categories %}
+                                      <option value="{{cat.recipe_category_name}}">{{cat.recipe_category_name}}</option>
+                                      {% endfor %}
                                 </select>
                                 <label> Recipe Category</label></label>
                             </div>
                         </div>
                         <div class="input-field col s12">
                             <i class="material-icons prefix">assignment</i>
-                            <input id="task_name" name="task_name" type="text">
+                            <input id="recipe_name" name="recipe_name" type="text">
                             <label for="icon_prefix">Recipe Name</label>
                         </div>
                     </div>
@@ -38,48 +38,77 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
+                            <textarea name="Ingriediens" id="Ingriediens" class="materialize-textarea validate"></textarea>
                             <label for="icon_telephone">Recipe Ingriediens</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s10">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <textarea name="preparation" id="preparation" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Recipe preparation</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <textarea name="nutrition_info" id="nutrition_info" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Nutrition Information</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <textarea name="alergens" id="alergens" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Alergens</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_preparation" id="recipe_preparation" class="materialize-textarea"></textarea>
+                            <textarea name="cousine" id="cousine" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Cousine</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="recipe_how_to_serve" id="recipe_how_to_serve" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">How to serve</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="preparation_time" id="preparation_time" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Preparation time</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="uploaded_by" id="uploaded_by" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Uploaded by </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">subject</i>
+                            <textarea name="picture_url" id="picture_url" class="materialize-textarea"></textarea>
+                            <label for="icon_telephone">Add picture URL</label>
                         </div>
                     </div>
                 </form>
         </div>
+        
+        
+        
         <div class='col-md-6 add_recipe_photo_wrapper'>
             <div class='row'>
-                <div class='col-md-1'></div>
-                <div class="add_recipe_photo col-md-10">
+                <div class="add_recipe_photo col-md-12">
                 <div class="card mb-4 box-shadow">
                     <img class="card-img-top add_recipe_img" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
                 </div>
-                <div class='col-md-1'></div>
             </div>
             <div class='row'>
                 <div class='col-md-4'></div>
@@ -88,9 +117,9 @@
             </div>
             <div class='row'>
                 <div class='col-md-1'></div>
-                <button type="button" class="add_recipe_btn btn btn-sm btn-outline-secondary col-md-4">Add recipe</button>
+                <button class="add_recipe_btn btn btn-sm btn-outline-secondary col-md-4" type="submit"  form="form">Add recipe</button>
                 <div class='col-md-2'></div>
-                <button type="button" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-4">Cancel</button>
+                <button type="button" onclick="window.location.href='{{ url_for('main_page') }}'" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-4">Cancel</button>
                 <div class='col-md-1'></div>
             </div>
             </div>

@@ -2,7 +2,7 @@
 <div class='container header_main_page'>
     <h3> My recipes</h3>
 </div>
-<div class='container recipes py-5 sm-light '>
+<div class='container recipes py-5 sm-light'>
     <div class='row'>
         <h3> My favorite recipes</h3>
         <div class='favorite_recipies'>
@@ -15,78 +15,40 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group btn-view">
                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-danger" ><i class="fas fa-times"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="card-wrapper col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group btn-view">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card-wrapper col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group btn-view">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
         </div>
     </div>
     <div class='row'>
         <h3> Uploaded by me</h3>
-        <div class='uploaded_by_me'>
-            <div class="card-wrapper col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group btn-view">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+        {% for recipe in recipes_uploaded_by_me %}
         <div class="card-wrapper col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
+                <div class='card_header'>
+                    {{recipe.recipe_name}}
+                </div>
+                <img class="card-img-top" data-src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="" src="{{recipe.recipe_img}}" data-holder-rendered="true">
                 <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h4 class="card-text">{{recipe.recipe_description}}</h4>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group btn-view">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" onclick="window.location.href='{{ url_for('recipe' , recipe_id=recipe._id) }}'" class="btn btn-sm btn-outline-secondary">View</button>
+                            <img class='recipe_views box-shadow' src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Fbrentvollebregt%2Fhit-counter" alt="Hits">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+       {% endfor %}
         </div>
     </div>
     
     
-    </div> 
-    <a type="button"  href="{{ url_for('add_recipe') }}" class="btn-upload_recipe btn btn-sm btn-outline-secondary">Upload Recipe !</a>
-    <a type="button" class="btn-my_recipes btn btn-sm btn-outline-secondary">My recipes!</a>
+    </div>
     <div class='row'>
         <div class='col-md-3'> </div>
         <nav aria-label="" class='col-md-6 pagination'>
