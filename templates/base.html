@@ -13,7 +13,8 @@
 </head>
 
 <body>
- <header>
+  {% block header %}
+    <header>
     <nav>
         <div class="nav-wrapper" >
             <div class="brand-logo" >
@@ -48,7 +49,6 @@
         </div>
     </nav>
  </header>
- 
  <section class='nav-tabs-wrapper'>
     
     <ul id="nav-mo" class="nav nav-tabs hide-on-med-and-down">
@@ -84,8 +84,8 @@
         </li>
     </ul>
 </section>
-       
-
+  {% endblock %}
+ 
 <section class='content'>
  <div class='container-fluid'>
     {% block content %}

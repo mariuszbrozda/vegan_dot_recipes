@@ -62,9 +62,9 @@ def desers():
 @app.route("/smoothies", methods=["GET", "POST"])
 def smoothies():
     username = session.get('username')
-    desers_recipes = mongo.db.recipes.find({"recipe_category_name": "Smoothies"})
+    smoothies_recipes = mongo.db.recipes.find({"recipe_category_name": "Smoothies"})
     return render_template("smoothies.html", user=username,
-                            desers_recipes = desers_recipes)
+                            smoothies_recipes = smoothies_recipes)
     
     
 @app.route("/juices", methods=["GET", "POST"])
@@ -128,9 +128,38 @@ def edit_recipe(recipe_id):
                            
                            
 
+@app.route('/update_recipe/<recipe_id>', methods=["GET", "POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'recipe_category_name':request.form.get('recipe_category_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'cousine': request.form.get('cousine'),
+        'uploaded_by': request.form.get('uploaded_by') ,
+        'recipe_picture_url': request.form.get('recipe_picture_url'),
+        'Ingriediens': request.form.get('Ingriediens'),
+        'nutrition_info': request.form.get('nutrition_info'),
+        'alergens': request.form.get('alergens'),
+        'preparation_time': request.form.get('preparation_time'),
+        'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
+        'preparation':request.form.get('preparation')
+    })
+    return redirect(url_for('my_recipes'))   
+
+@app.route('/delete_recipe/<recipe_id>', methods=["POST"])
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('my_recipes'))
     
-
-
+@app.route('/delete_recipe_from_favorities/<recipe_id>', methods=["POST"])
+def delete_recipe_from_favorities(recipe_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('my_recipes'))
+        
+    
+    
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

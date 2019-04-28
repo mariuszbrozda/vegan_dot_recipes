@@ -13,10 +13,10 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">poll</i>
-                                <select id="category" name="recipe_category_name">
-                                    <option value="" disabled selected>Choose Category</option>
+                                <select id="recipe_category_name" name="recipe_category_name" >
+                                    <option value="" disabled selected> Choose Category</option>
                                       {% for cat in recipes_categories %}
-                                      <option value="{{cat.recipe_category_name}}">{{cat.recipe_category_name}}</option>
+                                      <option value="{{cat.recipe_category_name}}" required>{{cat.recipe_category_name}}</option>
                                       {% endfor %}
                                 </select>
                                 <label> Recipe Category</label></label>
@@ -94,20 +94,17 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="picture_url" id="picture_url" class="materialize-textarea"></textarea>
+                            <textarea name="recipe_picture_url" id="recipe_picture_url" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Add picture URL</label>
                         </div>
                     </div>
                 </form>
         </div>
-        
-        
-        
         <div class='col-md-6 add_recipe_photo_wrapper'>
             <div class='row'>
                 <div class="add_recipe_photo col-md-12">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top add_recipe_img" data-src="" alt="" src="https://cdn.pixabay.com/photo/2016/12/26/17/28/food-1932466_960_720.jpg" data-holder-rendered="true">
+                    <img class="card-img-top add_recipe_img" data-src="" alt="" src="https://modaupgradedliving.com/wp-content/uploads/sites/2/2017/12/placeholder.png" data-holder-rendered="true">
                 </div>
             </div>
             <div class='row'>

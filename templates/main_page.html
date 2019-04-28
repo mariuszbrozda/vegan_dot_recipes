@@ -1,4 +1,6 @@
 {% extends 'base.html'%} {% block content %}
+
+
 <div class='container header_main_page'>
     <h3> All recipes</h3>
 </div>
@@ -10,7 +12,7 @@
                 <div class='card_header'>
                     {{recipe.recipe_name}}
                 </div>
-                <img class="card-img-top" data-src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="" src="{{recipe.picture_url}}" data-holder-rendered="true">
+                <img class="card-img-top" data-src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
                 <div class="card-body">
                     <h4 class="card-text">{{recipe.recipe_description}}</h4>
                     <div class="d-flex justify-content-between align-items-center">
