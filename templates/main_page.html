@@ -1,24 +1,27 @@
+
 {% extends 'base.html'%} {% block content %}
+
+{% include "header.html" %}
 
 
 <div class='container header_main_page'>
     <h3> All recipes</h3>
+    
 </div>
 <div class='container recipes py-5 sm-light '>
     <div class="row">
        {% for recipe in recipes %}
-        <div class="card-wrapper col-md-4">
+        <div class="card-wrapper col-md-4 col-sm-10">
             <div class="card mb-4 box-shadow">
                 <div class='card_header'>
                     {{recipe.recipe_name}}
                 </div>
-                <img class="card-img-top" data-src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
+                <img class="card-img-top img"  alt='NO PHOTO' data-src=""  src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
                 <div class="card-body">
                     <h4 class="card-text">{{recipe.recipe_description}}</h4>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group btn-view">
                             <button type="button" onclick="window.location.href='{{ url_for('recipe' , recipe_id=recipe._id) }}'" class="btn btn-sm btn-outline-secondary">View</button>
-                            <img class='recipe_views box-shadow' src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Fbrentvollebregt%2Fhit-counter" alt="Hits">
                         </div>
                     </div>
                 </div>
@@ -42,11 +45,7 @@
     </div>
 </div>
 
-<div class='col-xs-12 col-sm-12 col-md-12'>
-<footer class='footer'>
-   <p> Copyrights Mariusz Brozda &#169; </p>
-</footer>
-</div>
 
+{% include "footer.html" %}
 {% endblock %}
 

@@ -1,35 +1,74 @@
-var tweetLink = "https://twitter.com/intent/tweet?text=";
-var facebookPost = 'http://www.facebook.com/share.php?u='
-var recipeUrl = "";
 
-function getQuote() {
-  $.getJSON(quoteUrl, createTweet);
-};
-  
-function createMessage(input) {
-  var tweetText = ('Quote for today is : ' + input.quoteText +'Author : ' + input.quoteAuthor);
-  var tweet = tweetLink + encodeURIComponent(tweetText);
-  var 
-  var fbPost = facebookPost + encodeURIComponent(tweetText);
-  if (!input.quoteAuthor.length) {
-    input.quoteAuthor = "Unknown author";
-  }
-  if (tweetText.length > 140) {
-    getQuote();
-  }
-  else {
-    $('.quote').text(input.quoteText);
-    $('.author').text("Author: " +  input.quoteAuthor);
-    $('.tweet').attr('href', tweet);
-  }
-  $('.tweet').attr('href', tweet);
-};
 
-$(document).ready(function() {
-  getQuote();
-  $('.trigger').click(function() {
-    getQuote();
-  })
-  
-});
+var j = 0;
+
+function addIngriediens() {
+    
+    var j = 0;
+    j++
+    
+    var ingredients = $("#ingredients").find(".form-control").length + 1;
+    $("#ingredients").append("<div class='addedInputGroup'><label class='stepLabel' for='ingredient" + ingredients + "'>Ingredient " 
+    + ingredients + "</label><input id='ingredient" + ingredients
+    + "' name='ingredient" + ingredients
+    + "' type='text' class='addedInput form-control'>");
+   
+
+}
+
+function removeIngriediens() {
+    var ingredient_name = document.getElementById('ingredients');
+    ingredient_name.removeChild(ingredient_name.lastChild);
+    
+}
+
+
+
+function addNutritionInfo() {
+    var j = 0;
+    j++
+    var nutrition_info = $("#nutrition_info").find(".form-control").length + 1;
+    $("#nutrition_info").append("<div class='addedInputGroup'><label class='stepLabel' for='nutrition" + nutrition_info + "'>nutrition" 
+    + nutrition_info + "</label><input id='nutrition" + nutrition_info
+    + "' name='nutrition" + nutrition_info
+    + "' type='text' class='addedInput form-control'>");
+    
+    
+    
+    
+}
+
+function removeNutritionInfo() {
+    var nutrition_name = document.getElementById('nutrition_info');
+    nutrition_name.removeChild(nutrition_name.lastChild);
+}
+
+
+function addAlergens() {
+    var j = 0;
+    j++
+    
+    var alergens = $("#alergens").find(".form-control").length + 1;
+    $("#alergens").append("<div class='addedInputGroup'><label class='stepLabel' for='alergen" + alergens + "'>alergen" 
+    + alergens + "</label><input id='alergen" + alergens
+    + "' name='alergen" + alergens
+    + "' type='text' class='addedInput form-control'>");
+    
+    
+    
+    
+    
+}
+
+function removeAlergens() {
+    var remove = document.getElementById('nutrition_info');
+    remove.removeChild(remove.lastChild);
+    
+}
+
+
+
+
+
+
 

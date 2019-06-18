@@ -1,18 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-
+ {% include "header.html" %}
 
 
 <section class='container recipe_content_wrapper'>
     
     <div class="row">
-       
         <div class='col-md-5 recipe_details'>
             <div class='recipe_name col-md-5'>
                 <div class='row'>
                      <h3 class='col-md-12'>{{recipe.recipe_name}}</h3>
                 </div>
                 <div>
-                    <p> Cateory : {{recipe.recipe_category_name}}</p>
+                    <p> Category : {{recipe.recipe_category_name}}</p>
                 </div>
                 <div>
                     <p> Cousine : {{recipe.cousine}}</p>
@@ -37,10 +36,20 @@
             <div class='row'>
                 <div class='recipe_ingredients col-md-12'>
                     <h3><span class="label label-default">Ingredients</span></h3>
-                    <ol>
-                        <li class='descripton_p' >{{recipe.ingredients}}</li>
-                        <li class='descripton_p'>SFDSF</li>
-                    </ol>
+                    <div class="row recipe_ingredients">
+                        <div class="input-field recipe_ingredients col s12">
+                            <label>Ingredients</label>
+                            <div class="input-field col s8" id='ingredients'>
+                                <ul>
+                                {% for ingredient in recipe.ingredients %}
+                                    <li>
+                                        {{ingredient}}
+                                    </li>  
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>    
             <div class='row'>
@@ -60,90 +69,56 @@
         </div>
         <div class='col-md-7 add_recipe_photo_wrapper'>
             <div class='row'>
-                <div class="add_recipe_photo col-md-12">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top add_recipe_img" data-src="" alt="" src="{{recipe.picture_url}}" data-holder-rendered="true">
+                    <img class="card-img-top recipe_view_img" data-src="" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
                 </div>
             </div>
-            <div class='row'>
-                <div class='col-md-6 '>
-                    <h3 class='align-center'><span class="label label-default">NUTRITION INFO </span></h3> 
-                    <table class=''>
-                        <tr>
-                            <th class='align-center'>Calories</th>
-                            <th class='align-center'>Amount</th>
-                          </tr>
-                          <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                          </tr>
-                          <tr>
-                            <td>Centro comercial Moctezuma</td>
-                            <td>Francisco Chang</td>
-                          </tr>
-                          <tr>
-                            <td>Ernst Handel</td>
-                            <td>Roland Mendel</td>
-                          </tr>
-                          <tr>
-                            <td>Island Trading</td>
-                            <td>Helen Bennett</td>
-                          </tr>
-                          <tr>
-                            <td>Laughing Bacchus Winecellars</td>
-                            <td>Yoshi Tannamuri</td>
-                         </tr>
-                    </table>   
-                </div>
-                
-                <div class='col-md-6 table_alergens'>
-                    <h3 class='align-center'><span class="label label-default">ALERGENS</span></h3>
-                    <div class=''>
-                        <table class=''>
-                          <tr>
-                            <th class='align-center'>ALERGENS</th>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Peanuts</td>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Soybeans</td>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Soybeans</td>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Soybeans</td>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Soybeans</td>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Soybeans</td>
-                          </tr>
-                          <tr>
-                            <td class='align-center'>Soybeans</td>
-                          </tr>
-                        </table>
+            
+    <!-- NUTRITION--->
+    <div class='row'>
+                <div class='recipe_ingredients col-md-12'>
+                    <h3><span class="label label-default">NUTRITION INFO</span></h3>
+                    <div class="row recipe_ingredients">
+                        <div class="input-field recipe_ingredients col s12">
+                            <label>Ingredients</label>
+                            <div class="input-field col s8" id='nutrition_info'>
+                               <ul>
+                                    {% for nutrition in recipe.nutrition_info %}
+                                    <li class='center'>
+                                        {{nutrition}}
+                                    </li>   
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-            </div>
-            <div class='row'>
-                <div class='social_media_share col-md-7'>
-                    <div class="col-md-3">
-                        <h3><span class="label label-default"> Share</span></h3>    
+            </div>    
+    <!-- END NUTRITION--->
+        
+    <!-- ALERGENS--->
+    <div class='row'>
+                <div class='recipe_ingredients col-md-12'>
+                    <h3><span class="label label-default">ALERGENS</span></h3>
+                    <div class="row recipe_ingredients">
+                        <div class="input-field recipe_ingredients col s12">
+                            <label>ALERGENS</label>
+                            <div class="input-field col s8" id='alergens'>
+                                <ul>
+                                {% for alergen in recipe.alergens %}
+                                    <li>
+                                        {{alergen}}
+                                    </li>  
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class='row'>  
-                        <a class="icons fab fa-facebook" href='https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110'></a>
-                        <a class="icons fab fa-twitter tweet" target="_blank" ></a>   
-                        <a class="icons fab fa-instagram"></a>    
-                        <a class="icons fas fa-copy"> </a>    
-                    </div>       
                 </div>
-                <button type="button" class="add_to_favorities_btn btn btn-sm btn-outline-secondary col-md-4">ADD TO FAVORITIES <i class="fas fa-heart"></i></button>
-                <div class='col-md-1'></div>
-            </div>
+            </div>    
+    
+    <!-- END ALERGENS--->
+            
             <div class='row bon_apetite'>
                 <div class='col-md-6'></div>
                 <h3 class='col-md-5'> Bon Apetite !</h3>
@@ -154,15 +129,13 @@
     </div>
     <div class='row'>
         <div class='col-md-5'></div>
-        <button type="button" onclick="window.location.href='{{ url_for('my_recipes') }}'" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-2">Back !</button>
+        <button type="button" onclick="window.history.go(-1)" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-2">Back !</button>
         <div class='col-md-5'></div>
     </div>
 </section>
 
 
-<div class='col-xs-12 col-sm-12 col-md-12'>
-<footer class='footer'>
-   <p> Copyrights Mariusz Brozda &#169; </p>
-</footer>
-</div>
+{% include "footer.html" %}
 {% endblock %}
+
+

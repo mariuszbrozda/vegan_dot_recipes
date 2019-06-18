@@ -1,7 +1,8 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
+from wtforms import Form, BooleanField, StringField, PasswordField, validators
 
 app = Flask(__name__)
 app.secret_key = os.urandom(22)
@@ -10,16 +11,19 @@ app.config['MONGO_URI'] = "mongodb+srv://root:Latino1@myfirstcluster-wdhib.mongo
 
 
 
+
 mongo = PyMongo(app)
 
 
+
+    
 ## -------------------------------------------------LOIN PAGE ROUTE -----   
 
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/log_in", methods=["GET", "POST"])
 def log_in():
-    if request.method == "POST":
+    if request.method == 'POST':
         session['username'] = request.form['username']
         return redirect(url_for('main_page'))
     return render_template("log_in.html")
@@ -89,6 +93,7 @@ def my_recipes():
 
 @app.route("/recipe/<recipe_id>",methods=["GET", "POST"])
 def recipe(recipe_id):
+    recipes =  mongo.db.recipes
     recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     username = session.get('username')
     return render_template("recipe.html", user=username, recipe = recipe)
@@ -102,19 +107,68 @@ def recipe(recipe_id):
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    recipes =  mongo.db.recipes
     username = session.get('username')
     return render_template("add_recipe.html", user=username,
                         recipes_categories=mongo.db.recipes_categories.find())
                         
 
 
+
+
+
+    
 ## ----------------------------------------------INSERT RECIPE ROUTE -----  
     
-@app.route('/insert_recipe', methods=['POST'])
+@app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
+    
     recipes =  mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('main_page'))
+    
+    form_data = request.form.copy()
+    index = 0
+    ingredients= []
+    nutrition_info= []
+    alergens= []
+    
+   
+    for input_field in request.form:
+        if input_field[:-1] == "ingredient":
+            ingredients.append(form_data[input_field])
+            del form_data[input_field]
+        if input_field[:-1] == "nutrition":
+                nutrition_info.append(form_data[input_field])
+                del form_data[input_field]
+        if input_field[:-1] == "alergen":
+                alergens.append(input_field)
+                del form_data[input_field]
+        
+        
+        if len(ingredients) > 0:
+            form_data["ingredients"] = ingredients
+        if len(nutrition_info) > 0:
+            form_data["nutrition_info"] = nutrition_info
+        if len(alergens) > 0:
+            form_data["alergens"] = alergens
+        
+    recipe_dict = recipes.insert_one(
+        {
+        'recipe_name':request.form.get('recipe_name'),
+        'recipe_category_name':request.form.get('recipe_category_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'cousine': request.form.get('cousine'),
+        'uploaded_by': request.form.get('uploaded_by') ,
+        'recipe_picture_url': request.form.get('recipe_picture_url'),
+        'preparation_time': request.form.get('preparation_time'),
+        'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
+        'preparation':request.form.get('preparation'),
+        'ingredients': ingredients,
+        'nutrition_info':nutrition_info,
+        'alergens': alergens
+        }
+    )
+    return redirect(url_for('main_page' ))
+
 
 
 ## ----------------------------------------------EDIT ROUTE -----
@@ -126,12 +180,17 @@ def edit_recipe(recipe_id):
     return render_template('edit_recipe.html', recipe = recipe,
                            recipes_categories=all_categories)    
                            
-                           
+
+
+
+    
 
 @app.route('/update_recipe/<recipe_id>', methods=["GET", "POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
-    recipes.update( {'_id': ObjectId(recipe_id)},
+    form_data = request.form.copy()
+    
+    recipe_dict = recipes.update( {'_id': ObjectId(recipe_id)},
     {
         'recipe_name':request.form.get('recipe_name'),
         'recipe_category_name':request.form.get('recipe_category_name'),
@@ -139,9 +198,6 @@ def update_recipe(recipe_id):
         'cousine': request.form.get('cousine'),
         'uploaded_by': request.form.get('uploaded_by') ,
         'recipe_picture_url': request.form.get('recipe_picture_url'),
-        'Ingriediens': request.form.get('Ingriediens'),
-        'nutrition_info': request.form.get('nutrition_info'),
-        'alergens': request.form.get('alergens'),
         'preparation_time': request.form.get('preparation_time'),
         'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
         'preparation':request.form.get('preparation')

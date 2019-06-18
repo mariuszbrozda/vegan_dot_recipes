@@ -1,19 +1,23 @@
 {% extends 'base.html'%} {% block content %}
-      <header>
-    <nav>
-        <div class="nav-wrapper" >
-        </div>
-    </nav>
- </header>
+      
 <!------------------------------------------- USER LOGIN  -->
-
+<section>
+    <div class='row '>
+        <div class='col s4'></div>
+        <div class='introduction_message_header col s4'>
+            <h2> Vegan Dot Recipes !</h2>
+            <h3 class='introduction_message'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </h3>
+        </div>   
+        <div class='col s4'></div>
+    </div>
     <div class='row'>
         <div class=' col-sm-2'></div>
         <div class='log_in_box form-group container'>
             <h2> LOGIN </h2>
             <form  method="POST">
                 <label for="">Username </label><br>
-                <input class='login_input' id='username' type="name" name="username"/>
+                <input class='login_input' id='username' type="name" name="username" maxlength="15"/>
                 <button class='log_in_button mb-2' type="submit" id='login-btn' name='login' > LOG IN !</button><br>
             </form>
         </div>
