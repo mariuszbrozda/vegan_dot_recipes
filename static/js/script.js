@@ -2,7 +2,7 @@
 
 var j = 0;
 
-function addIngriediens() {
+function addIngrediens() {
     
     var j = 0;
     j++
@@ -16,7 +16,7 @@ function addIngriediens() {
 
 }
 
-function removeIngriediens() {
+function removeIngrediens() {
     var ingredient_name = document.getElementById('ingredients');
     ingredient_name.removeChild(ingredient_name.lastChild);
     
@@ -55,13 +55,10 @@ function addAlergens() {
     + "' type='text' class='addedInput form-control'>");
     
     
-    
-    
-    
 }
 
 function removeAlergens() {
-    var remove = document.getElementById('nutrition_info');
+    var remove = document.getElementById('alergens');
     remove.removeChild(remove.lastChild);
     
 }

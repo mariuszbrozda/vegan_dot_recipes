@@ -7,7 +7,7 @@
     <div class="row">
         <div class='col-md-10  add_recipe_form_wrapper'>
             <div class='col-md-3'></div>
-                <form id="form" action='{{url_for("update_recipe", recipe_id=recipe._id)}}'  method="POST"  class="add_recipe_form col-md-9">
+                <form id="form" action='{{url_for("update_recipe", recipe_id=recipe._id)}}'  method="POST, GET"  class="add_recipe_form col-md-9">
                     <div class="row">
                 
 <!----------------------------------------------------RECIPE CATEGORY-->
@@ -87,17 +87,17 @@
                     <div class="row">
                         <label for='icon_telephone' class=' col s12'>INGRIEDIENT NAME</label>
                         {% for ingredient in recipe.ingredients %}
-                        <div class="input-field col s8" id='ingredients'>
-                            <ul>
-                                <li>
-                                    <input class="form-control col s12 addIngredient align-center col s6" id="ingredient" name="ingredient" type="text" value='{{ingredient}}' required>
+                        <div>
+                            <ul id='ingredients' name="ingredients[]">
+                                <li class="ingredient addIngredient input-field col s8">
+                                    <input class="form-control col s12 addIngredient align-center col s6" id='ingredient' name='ingredient' type="text"  required>{{ingredient}}
                                 </li>   
                             </ul>
                         </div>
                         {% endfor %}
-                        <div class="input-field col s8">
-                            <button class='add_row_btn_add col s12' id="addIngredients"  type='button' onclick='addIngriediens()'>ADD INGRIEDIENS</button>
-                            <button class='add_row_brn_remove col s12' type='button' onclick='removeIngriediens()'>REMOVE INGRIEDIENS</button>
+                        <div class=" col s8">
+                            <button id="addIngredient" class='add_row_btn_add col s6'   type='button'  onclick='addIngrediens()'>ADD INGRIEDIENS</button>
+                            <button class='add_row_brn_remove col s6' type='button' onclick='removeIngrediens()'>REMOVE INGRIEDIENS</button>
                         </div>
                         
                     </div>
@@ -106,19 +106,18 @@
                   
 <!----------------------------------------------------NUTRITION INFO -->
                     <div class="row">
-                        <label for="icon_telephone">ADD NUTRITION INFO</label>
-                        <div class="input-field col s12">
-                            <table class=''>
-                                <tr>
-                                    <th class="align-center col s6">PER PORTION</th>
-                                    <th class="align-center col s6">AMMOUNT</th>
-                                 </tr>
-                                 <tr id="nutrition_dict" name="nutrition_dict"   class="lstSelected">
-                                    <td  name="nutrition_name col s6" id="nutrition_name"></td>
-                                    <td  name='nutrition_ammount col s6' id="nutrition_ammount"></td>
-                                  </tr>
-                            </table>   
-                            <button class='add_row_btn_add col s6' type='button' onclick='addNutritionInfo()'>ADD INFO</button>
+                        <label for="icon_telephone" class=' col s12'>ADD NUTRITION INFO</label>
+                        <div class=" col s8">
+                            <ul>
+                                {% for nutrition in recipe.nutrition_info %}
+                                <li id='nutrition_info' class='nutrition_info' name="nutrition_info[]">
+                                     <input  value='{{ nutrition}}' required>
+                                </li> 
+                                 {% endfor %}
+                            </ul>
+                        </div>
+                        <div class=" col s8">
+                            <button id="addNutrition" class='add_row_btn_add col s6' type='button' form='nutrition_info' onclick='addNutritionInfo()'>ADD INFO</button>
                             <button class='add_row_brn_remove col s6' type='button' onclick='removeNutritionInfo()'>REMOVE INFO</button>
                         </div>
                     </div>
@@ -126,21 +125,21 @@
                    
 <!----------------------------------------------------ALERENS-->
                     <div class="row">
-                        <label for="icon_telephone">ALERENS</label>
-                        <div class="input-field col s12">
-                            <table class=''>
-                                <tr>
-                                    <th class='align-center col s12'>ALERGEN LIST</th>
-                                 </tr>
-                                 <tr id="alergen_dict" name="alergen_dict"   class="lstSelected">
-                                    <td  name="alergen_name col s12" id="alergen_name"></td>
-                                  </tr>
-                            </table>   
-                            <button class='add_row_btn_add col s6' type='button' onclick='addAlergen()'>ADD ALERGEN</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeAlergen()'>REMOVE ALERGEN</button>
+                        <label for="icon_telephone" class=' col s12'>ALERENS</label>
+                        <div class="col s8">
+                            <ul>
+                                {% for alergen in recipe.alergens %}
+                                <li  id='alergens' class='alergens addAlergen' name="alergens[]">
+                                    <input   value='{{alergen}}' required>   
+                                </li> 
+                                {% endfor %}
+                            </ul>
+                        </div>  
+                        <div class="col s8">
+                            <button id="addAlergen" class='add_row_btn_add col s6' type='button' form='alergens' onclick='addAlergens()'>ADD ALERGEN</button>
+                            <button class='add_row_brn_remove col s6' type='button' onclick='removeAlergens()'>REMOVE ALERGEN</button>
                         </div>
                     </div>
- 
                     
 <!----------------------------------------------------HOW TO SERVE-->
                     <div class="row">
@@ -169,15 +168,13 @@
 <!----------------------------------------------------ADD RECIPE  AND CANCEL BTN -->
                 <div class='row'>
                     <div class='col s3'></div>
-                    <button class="add_recipe_btn btn btn-sm btn-outline-secondary col s4" type="submit" value="submit" form="form">Update recipe</button>
+                    <button class="add_recipe_btn btn btn-sm btn-outline-secondary col s4" type="submit" value="submit" name='action' form="form">Update recipe</button>
                     <div class='col s1'></div>
-                    <button type="button" onclick="window.location.href='{{ url_for('recipe' , recipe_id=recipe._id) }}'" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4">Cancel</button>
+                    <button type="button" onclick="window.history.go(-1)" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4">Cancel</button>
                     <div class='col s3'></div>
                 </div>
             </div>
         </div>
-    
-    
 </section>
 {% include "footer.html" %}
 {% endblock %}

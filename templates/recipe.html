@@ -38,7 +38,7 @@
                     <h3><span class="label label-default">Ingredients</span></h3>
                     <div class="row recipe_ingredients">
                         <div class="input-field recipe_ingredients col s12">
-                            <label>Ingredients</label>
+                            
                             <div class="input-field col s8" id='ingredients'>
                                 <ul>
                                 {% for ingredient in recipe.ingredients %}
@@ -75,16 +75,16 @@
             </div>
             
     <!-- NUTRITION--->
-    <div class='row'>
-                <div class='recipe_ingredients col-md-12'>
-                    <h3><span class="label label-default">NUTRITION INFO</span></h3>
+            <div class='row'>
+                <div class='recipe_ingredients col-md-6'>
+                    <h3><span class="label center label-default">NUTRITION INFO</span></h3>
                     <div class="row recipe_ingredients">
                         <div class="input-field recipe_ingredients col s12">
-                            <label>Ingredients</label>
-                            <div class="input-field col s8" id='nutrition_info'>
+                            
+                            <div class="input-field col s12" id='nutrition_info'>
                                <ul>
                                     {% for nutrition in recipe.nutrition_info %}
-                                    <li class='center'>
+                                    <li>
                                         {{nutrition}}
                                     </li>   
                                     {% endfor %}
@@ -93,17 +93,17 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+               
     <!-- END NUTRITION--->
         
     <!-- ALERGENS--->
-    <div class='row'>
-                <div class='recipe_ingredients col-md-12'>
-                    <h3><span class="label label-default">ALERGENS</span></h3>
+    
+                <div class='recipe_ingredients col-md-6'>
+                    <h3><span class="label center label-default">ALERGENS</span></h3>
                     <div class="row recipe_ingredients">
                         <div class="input-field recipe_ingredients col s12">
-                            <label>ALERGENS</label>
-                            <div class="input-field col s8" id='alergens'>
+                            
+                            <div class="input-field col s12" id='alergens'>
                                 <ul>
                                 {% for alergen in recipe.alergens %}
                                     <li>
@@ -129,7 +129,7 @@
     </div>
     <div class='row'>
         <div class='col-md-5'></div>
-        <button type="button" onclick="window.history.go(-1)" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-2">Back !</button>
+            <button type="button" onclick="window.history.go(-1)" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-2">Back !</button>
         <div class='col-md-5'></div>
     </div>
 </section>

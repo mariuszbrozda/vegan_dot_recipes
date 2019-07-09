@@ -20,8 +20,9 @@ div
     padding: 0;
     font-size: 1em;
     line-height: 1.375em;
-    background-color: white;
+    background-color: #F8F9FA;
     font-family: 'Cabin Condensed', sans-serif;
+    
 }
 
 
@@ -97,7 +98,7 @@ div.nav-wrapper {
 }
 
 footer {
-    margin: 0 ;
+    margin-top: 40px;
     padding: 0;
     height: 80px;
     border-top: 1px solid grey;
@@ -245,7 +246,7 @@ p,
 .add_recipe_content,
 .add_recipe_form_wrapper,
 .card-wrapper {
-    background-color: white;
+    background-color: #F8F9FA;
 }
 
 img{
@@ -382,9 +383,9 @@ img{
 }
 
 
-.add_recipe_cancel_btn{
+div.add_recipe_cancel_btn{
    margin-top: 100px;
-   margin-bottom: 40px;
+   margin-bottom: 60px;
 }
 
 

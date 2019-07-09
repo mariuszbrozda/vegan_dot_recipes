@@ -11,13 +11,12 @@ app.config['MONGO_URI'] = "mongodb+srv://root:Latino1@myfirstcluster-wdhib.mongo
 
 
 
-
 mongo = PyMongo(app)
 
 
+## -------------------------------------------------LOIN PAGE ROUTE ----- 
 
-    
-## -------------------------------------------------LOIN PAGE ROUTE -----   
+
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -27,7 +26,8 @@ def log_in():
         session['username'] = request.form['username']
         return redirect(url_for('main_page'))
     return render_template("log_in.html")
- 
+
+
  
 ## -------------------------------------------------MAIN PAGE ROUTE -----   
     
@@ -115,8 +115,6 @@ def add_recipe():
 
 
 
-
-
     
 ## ----------------------------------------------INSERT RECIPE ROUTE -----  
     
@@ -182,16 +180,39 @@ def edit_recipe(recipe_id):
                            
 
 
-
-    
-
 @app.route('/update_recipe/<recipe_id>', methods=["GET", "POST"])
 def update_recipe(recipe_id):
-    recipes = mongo.db.recipes
-    form_data = request.form.copy()
     
-    recipe_dict = recipes.update( {'_id': ObjectId(recipe_id)},
-    {
+    recipes =  mongo.db.recipes
+        
+    form_data = request.form.copy()
+    index = 0
+    ingredients= []
+    nutrition_info= []
+    alergens= []
+    
+   
+    for input_field in request.form:
+        if input_field[:-1] == "ingredient":
+            ingredients.append(form_data[input_field])
+            del form_data[input_field]
+        if input_field[:-1] == "nutrition":
+                nutrition_info.append(form_data[input_field])
+                del form_data[input_field]
+        if input_field[:-1] == "alergen":
+                alergens.append(input_field)
+                del form_data[input_field]
+        
+        
+        if len(ingredients) > 0:
+            form_data["ingredients"] = ingredients
+        if len(nutrition_info) > 0:
+            form_data["nutrition_info"] = nutrition_info
+        if len(alergens) > 0:
+            form_data["alergens"] = alergens
+        
+    recipe_dict = recipes.update({"_id": ObjectId(recipe_id)},
+        {
         'recipe_name':request.form.get('recipe_name'),
         'recipe_category_name':request.form.get('recipe_category_name'),
         'recipe_description': request.form.get('recipe_description'),
@@ -200,9 +221,13 @@ def update_recipe(recipe_id):
         'recipe_picture_url': request.form.get('recipe_picture_url'),
         'preparation_time': request.form.get('preparation_time'),
         'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
-        'preparation':request.form.get('preparation')
-    })
-    return redirect(url_for('my_recipes'))   
+        'preparation':request.form.get('preparation'),
+        'ingredients': form_data['ingredients'],
+        'nutrition_info': form_data['nutrition_info'],
+        'alergens': form_data['alergens']
+        }
+    )
+    return redirect(url_for('my_recipes'))
 
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
 def delete_recipe(recipe_id):
@@ -213,9 +238,8 @@ def delete_recipe(recipe_id):
 def delete_recipe_from_favorities(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('my_recipes'))
-        
-    
-    
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
