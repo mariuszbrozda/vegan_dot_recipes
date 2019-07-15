@@ -1,14 +1,15 @@
 {% extends 'base.html' %} {% block content %}
  {% include "header.html" %}
 <div class='container header_main_page'>
-    <h3> Edit your recipe {USERNAME} </h3>
+    <h3> Edit your recipe {{user}} </h3>
 </div>
-<section class='container add_recipe_content'>
+
+<section class='container add_recipe_content py-5 sm-light'>
     <div class="row">
         <div class='col-md-10  add_recipe_form_wrapper'>
             <div class='col-md-3'></div>
-                <form id="form" action='{{url_for("update_recipe", recipe_id=recipe._id)}}'  method="POST, GET"  class="add_recipe_form col-md-9">
-                    <div class="row">
+            <form id="form" action='{{url_for("update_recipe", recipe_id=recipe._id)}}'  method="POST"  class="add_recipe_form col-md-9">
+                <div class="row">
                 
 <!----------------------------------------------------RECIPE CATEGORY-->
                         <div class="row">
@@ -28,7 +29,7 @@
 <!----------------------------------------------------RECIPE NAME -->
                         <div class="input-field col s12">
                             <i class="material-icons prefix">assignment</i>
-                            <input id="recipe_name" name="recipe_name" type="text" value='{{recipe.recipe_name}}'>
+                            <input id="recipe_name" name="recipe_name" type="text" value='{{recipe.recipe_name}}' maxlength="20">
                             <label for="icon_prefix">Recipe Name</label>
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="preparation_time" id="preparation_time" class="materialize-textarea"> {{recipe.preparation_time}}</textarea>
+                            <textarea name="preparation_time" id="preparation_time" class="materialize-textarea" maxlength="20">{{recipe.preparation_time}}</textarea>
                             <label for="icon_telephone">Preparation time</label>
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="cousine" id="cousine" class="materialize-textarea"> {{recipe.cousine}}</textarea>
+                            <textarea name="cousine" id="cousine" class="materialize-textarea" maxlength="20">{{recipe.cousine}}</textarea>
                             <label for="icon_telephone">Cousine</label>
                         </div>
                     </div>
@@ -58,7 +59,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="uploaded_by" id="uploaded_by" class="materialize-textarea">{{recipe.uploaded_by}}</textarea>
+                            <textarea name="uploaded_by" id="uploaded_by" class="materialize-textarea" maxlength="15">{{recipe.uploaded_by}}</textarea>
                             <label for="icon_telephone">Uploaded by </label>
                         </div>
                     </div>                   
@@ -67,7 +68,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_description" id="recipe_description" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
+                            <textarea name="recipe_description" id="recipe_description" class="materialize-textarea" maxlength="160">{{recipe.recipe_description}}</textarea>
                             <label for="icon_telephone">Recipe Description</label>
                         </div>
                     </div>
@@ -77,7 +78,7 @@
                     <div class="row">
                         <div class="input-field col s10">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="preparation" id="preparation" class="materialize-textarea"> {{recipe.preparation}}</textarea>
+                            <textarea name="preparation" id="preparation" class="materialize-textarea">{{recipe.preparation}}</textarea>
                             <label for="icon_telephone">Recipe preparation</label>
                         </div>
                     </div>
@@ -86,34 +87,33 @@
                     
                     <div class="row">
                         <label for='icon_telephone' class=' col s12'>INGRIEDIENT NAME</label>
-                        {% for ingredient in recipe.ingredients %}
-                        <div>
-                            <ul id='ingredients' name="ingredients[]">
-                                <li class="ingredient addIngredient input-field col s8">
-                                    <input class="form-control col s12 addIngredient align-center col s6" id='ingredient' name='ingredient' type="text"  required>{{ingredient}}
+                        
+                        <div class="col s8" >
+                           <ul id='ingredients' name="ingredients[]">
+                               {% for ingredient in recipe.ingredients %}
+                                <li   class='ingredient addIngredient'>
+                                    <input  id='ingredient' name='ingredient' value='{{ingredient}}' class='form-control' required>
                                 </li>   
-                            </ul>
+                                {% endfor %}
+                            </ul> 
                         </div>
-                        {% endfor %}
                         <div class=" col s8">
                             <button id="addIngredient" class='add_row_btn_add col s6'   type='button'  onclick='addIngrediens()'>ADD INGRIEDIENS</button>
                             <button class='add_row_brn_remove col s6' type='button' onclick='removeIngrediens()'>REMOVE INGRIEDIENS</button>
                         </div>
-                        
                     </div>
-
- 
+            
                   
 <!----------------------------------------------------NUTRITION INFO -->
                     <div class="row">
                         <label for="icon_telephone" class=' col s12'>ADD NUTRITION INFO</label>
                         <div class=" col s8">
-                            <ul>
+                            <ul id='nutrition_info' class='nutrition_info' name="nutrition_info[]">
                                 {% for nutrition in recipe.nutrition_info %}
-                                <li id='nutrition_info' class='nutrition_info' name="nutrition_info[]">
-                                     <input  value='{{ nutrition}}' required>
-                                </li> 
-                                 {% endfor %}
+                                <li>
+                                    <input  id='nutrition' name='nutrition' value='{{ nutrition}}' required>
+                                </li>   
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class=" col s8">
@@ -127,11 +127,11 @@
                     <div class="row">
                         <label for="icon_telephone" class=' col s12'>ALERENS</label>
                         <div class="col s8">
-                            <ul>
+                            <ul id='alergens' class='alergens addAlergen' >
                                 {% for alergen in recipe.alergens %}
-                                <li  id='alergens' class='alergens addAlergen' name="alergens[]">
-                                    <input   value='{{alergen}}' required>   
-                                </li> 
+                                <li>
+                                    <input   value='{{alergen}}' id='alergen' name='alergen' required>     
+                                </li>  
                                 {% endfor %}
                             </ul>
                         </div>  
@@ -140,12 +140,13 @@
                             <button class='add_row_brn_remove col s6' type='button' onclick='removeAlergens()'>REMOVE ALERGEN</button>
                         </div>
                     </div>
+ 
                     
 <!----------------------------------------------------HOW TO SERVE-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">subject</i>
-                            <textarea name="recipe_how_to_serve" id="recipe_how_to_serve" class="materialize-textarea">{{recipe.recipe_how_to_serve}}</textarea>
+                            <textarea name="recipe_how_to_serve" id="recipe_how_to_serve" class="materialize-textarea" maxlength="250">{{recipe.recipe_how_to_serve}}</textarea>
                             <label for="icon_telephone">How to serve</label>
                         </div>
                     </div>

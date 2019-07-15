@@ -180,6 +180,9 @@ def edit_recipe(recipe_id):
                            
 
 
+
+
+
 @app.route('/update_recipe/<recipe_id>', methods=["GET", "POST"])
 def update_recipe(recipe_id):
     
@@ -210,9 +213,15 @@ def update_recipe(recipe_id):
             form_data["nutrition_info"] = nutrition_info
         if len(alergens) > 0:
             form_data["alergens"] = alergens
-        
-    recipe_dict = recipes.update({"_id": ObjectId(recipe_id)},
+    
+    
+   
+    
+      
+    recipe_dict = recipes.update(
+        {"_id": ObjectId(recipe_id)},
         {
+        
         'recipe_name':request.form.get('recipe_name'),
         'recipe_category_name':request.form.get('recipe_category_name'),
         'recipe_description': request.form.get('recipe_description'),
@@ -222,11 +231,15 @@ def update_recipe(recipe_id):
         'preparation_time': request.form.get('preparation_time'),
         'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
         'preparation':request.form.get('preparation'),
-        'ingredients': form_data['ingredients'],
-        'nutrition_info': form_data['nutrition_info'],
-        'alergens': form_data['alergens']
+        'ingredients': ingredients,
+        'nutrition_info': nutrition_info,
+        'alergens': alergens
         }
+        
     )
+    
+    
+    
     return redirect(url_for('my_recipes'))
 
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
@@ -234,10 +247,7 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('my_recipes'))
     
-@app.route('/delete_recipe_from_favorities/<recipe_id>', methods=["POST"])
-def delete_recipe_from_favorities(recipe_id):
-    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('my_recipes'))
+
 
 
 
