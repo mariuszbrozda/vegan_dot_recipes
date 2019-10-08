@@ -12,18 +12,6 @@
   box-sizing: border-box;
 }
 
-body,
-html,
-div
-{
-    margin: 0;
-    padding: 0;
-    font-size: 1em;
-    line-height: 1.375em;
-    background-color: white;
-    font-family: 'Cabin Condensed', sans-serif;
-    
-}
 
 
 
@@ -116,14 +104,14 @@ footer > h5 {
 div.introduction_message{
     margin-top: 20px;
     height: 250px;
-    line-height: 1.375em;
-    padding: 40px 25px;
+    line-height: 1.5em;
+    padding: 2rem;
     color: black;
     text-shadow: 2px 2px 2px white;
 }
 
 div.introduction_message_header{
-    margin-top: 10px;
+    margin-top: 2rem;
     color: black;
     font-weight: 120;
     text-shadow: 2px 2px 2px white;
@@ -136,16 +124,16 @@ div.log_in_box{
     height: 340px;
     width: 300px;
     box-shadow: 1px 1px 1px black;
-    margin-top: 10px;
+    margin-top: 1rem;
     color: black;
 }
 
 .log_in_box > form {
-    padding: 20px;
+    padding: 1rem;
 }
 
 .log_in_box > form > label {
-    padding: 5px;
+    padding: 1rem;
     line-height: 1.375em;
     font-size: 1em;
 }
@@ -161,7 +149,7 @@ div.log_in_box{
 }
 
 .log_in_button{
-    padding: 10px;
+    padding: 1rem;
     margin: 0 auto;
     margin-bottom: 10px;
     width: 100%;
@@ -174,21 +162,10 @@ div.log_in_box{
 
 
 
-.fb_button {
-    text-align: center;
-    padding: 10px;
-    margin: 0 auto;
-    width: 100%;
-    height: 50px;
-    color:  #DCE2EA;
-    text-shadow: 1px 1px 1px solid white;
-    background-color:  #0F346C;
-}
-
 .log_in_box > form > input{
     font-size: 18px;
     width: 100%;
-    padding: 5px;
+    padding: 0.5rem;
     margin-bottom: 10px;
 }
 
@@ -204,16 +181,12 @@ div.log_in_box{
     word-wrap: break-word;
     min-height: 75px;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
     margin-top: 110px;
 }
 
-.pagination{
-    text-align: center;
-    margin-top: 50px;
-    background-color: white;
-}
+
 
 /*-------------------------------------RECIPES */
 
@@ -246,7 +219,7 @@ p,
 .add_recipe_content,
 .add_recipe_form_wrapper,
 .card-wrapper {
-    background-color: white;
+    background-color:  #F8F9FA;
 }
 
 img{
@@ -255,7 +228,7 @@ img{
 }
 .card-img-top {
     background-color: rgba(0,0,0,0.2);
-    margin: 0;
+    margin: 1rem;
     height: 250px;
     width: 100%;
     display: block;
@@ -272,18 +245,17 @@ img{
     word-wrap: break-word;
     margin-bottom: 1rem;
     height: 110px;
-    padding:  25px 25px;
+    padding:  2rem;
     text-shadow: 1px 1px solid white;
 }
 
 .card_header{
-    
     font-family: 'Cabin Condensed', sans-serif;
     word-wrap: break-word;
     margin-bottom: 1rem;
     font-size: 1.375em;
     height: 40px;
-    padding: 10px;
+    padding: 1rem;
     margin: 0;
     text-align: center;
 }
@@ -298,56 +270,14 @@ img{
 
 
 
-.fa-facebook{
-    padding: 5px;
-    color: #3B5998;
-    font-size: 35px;
-}
-
-.fa-twitter{
-    padding: 5px;
-    color: #1DA1F2;
-    font-size: 35px;
-}
-
-.fa-instagram{
-    padding: 5px;
-    color: #B4337D;
-    font-size: 35px;
-}
-
-.fa-copy{
-    padding: 5px;
-    color: #1F1F1F;
-    font-size: 35px;
-}
 
 
-
-.social_media_share {
-  display: inline-block;
-  padding:  0;
-  height: 40px;
-  margin-top: 120px;
-}
-
-
-.social_media_share >h3{
-    margin-top:  10px;
-    
-}
 
 
 .bon_apetite{
     margin-top: 240px;
 }
 
-
-.recipe_views{
-    height: 35px;
-    margin-left: 10px;
-
-}
 
 
 
@@ -474,12 +404,6 @@ tr:nth-child(even) {
     margin-top: 5px;
 }
 
-.Uploaded_by_me_header{
-    padding: 25px 20px;
-    margin-left: 40px;
-}
-
-
 
 
 
@@ -495,8 +419,44 @@ tr:nth-child(even) {
 }
 }
 
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
 
+body,
+div
+{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'Cabin Condensed', sans-serif;
+    
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 1.6rem;
+  }
+}
 
 
 

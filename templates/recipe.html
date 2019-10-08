@@ -3,7 +3,6 @@
 
 
 <section class='container recipe_content_wrapper'>
-    
     <div class="row">
         <div class='col-md-5 recipe_details'>
             <div class='recipe_name col-md-5'>
@@ -37,16 +36,55 @@
                 <div class='recipe_ingredients col-md-12'>
                     <h3><span class="label label-default">Ingredients</span></h3>
                     <div class="row recipe_ingredients">
-                        <div class="input-field recipe_ingredients col s12">
+                        <div class=" recipe_ingredients col s12">
                             
-                            <div class="input-field col s8" id='ingredients'>
-                                <ul>
-                                {% for ingredient in recipe.ingredients %}
-                                    <li>
-                                        {{ingredient}}
-                                    </li>  
-                                {% endfor %}
-                                </ul>
+                            <div class=" col s12" id='ingredients'>
+                                <table class='align-center' id='ingredients' name="ingredients[]">
+                                    <tr>
+                                        <th class='align-center'>Ingredients Name</th>
+                                        <th class='align-center'>Ingredients Ammount</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{recipe.ingredients.ingredient1}}</td>
+                                        <td>{{recipe.ingredients.ingredient1_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient2}}</td>
+                                        <td>{{recipe.ingredients.ingredient2_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient3}}</td>
+                                        <td>{{recipe.ingredients.ingredient3_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient4}}</td>
+                                        <td>{{recipe.ingredients.ingredient4_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient5}}</td>
+                                        <td>{{recipe.ingredients.ingredient5_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient6}}</td>
+                                        <td>{{recipe.ingredients.ingredient6_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient7}}</td>
+                                        <td>{{recipe.ingredients.ingredient7_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient8}}</td>
+                                        <td>{{recipe.ingredients.ingredient8_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient9}}</td>
+                                        <td>{{recipe.ingredients.ingredient9_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.ingredients.ingredient10}}</td>
+                                        <td>{{recipe.ingredients.ingredient10_ammount}}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -79,18 +117,52 @@
                 <div class='recipe_ingredients col-md-6'>
                     <h3><span class="label center label-default">NUTRITION INFO</span></h3>
                     <div class="row recipe_ingredients">
-                        <div class="input-field recipe_ingredients col s12">
-                            
-                            <div class="input-field col s12" id='nutrition_info'>
-                               <ul>
-                                    {% for nutrition in recipe.nutrition_info %}
-                                    <li>
-                                        {{nutrition}}
-                                    </li>   
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
+                        <table class='align-center' id='nutrition_info' name="nutrition_info">
+                                    <tr>
+                                        <th class='align-center'>NUTRITION INFO</th>
+                                        <th class='align-center'>AMMOUNT</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{recipe.nutrition_info.nutrition1}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition1_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition2}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition2_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition3}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition3_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition4}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition4_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition5}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition5_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition6}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition6_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition7}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition7_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition8}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition8_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition9}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition9_ammount}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.nutrition_info.nutrition10}}</td>
+                                        <td>{{recipe.nutrition_info.nutrition10_ammount}}</td>
+                                    </tr>
+                                </table>
                     </div>
                 </div>
                
@@ -101,18 +173,41 @@
                 <div class='recipe_ingredients col-md-6'>
                     <h3><span class="label center label-default">ALERGENS</span></h3>
                     <div class="row recipe_ingredients">
-                        <div class="input-field recipe_ingredients col s12">
-                            
-                            <div class="input-field col s12" id='alergens'>
-                                <ul>
-                                {% for alergen in recipe.alergens %}
-                                    <li>
-                                        {{alergen}}
-                                    </li>  
-                                {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
+                        <table class='align-center' id='alergens' name="alergens">
+                                    <tr>
+                                        <th class='align-center'>ALERGEN NAME</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{recipe.alergens.alergen1}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen2}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen3}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen4}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen5}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen6}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen7}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen8}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen9}}</td>
+                                    </tr>
+                                    <tr> 
+                                        <td>{{recipe.alergens.alergen10}}</td>
+                                    </tr>
+                                </table>
                     </div>
                 </div>
             </div>    

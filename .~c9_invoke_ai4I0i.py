@@ -160,66 +160,9 @@ def insert_recipe():
         'preparation_time': request.form.get('preparation_time'),
         'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
         'preparation':request.form.get('preparation'),
-        'ingredients': {
-            'ingredient1': request.form.get('ingredient1'),
-            'ingredient1_ammount': request.form.get('ingredient1_ammount'),
-            'ingredient2': request.form.get('ingredient2'),
-            'ingredient2_ammount': request.form.get('ingredient2_ammount'),
-            'ingredient3': request.form.get('ingredient3'),
-            'ingredient3_ammount': request.form.get('ingredient3_ammount'),
-            'ingredient4': request.form.get('ingredient4'),
-            'ingredient4_ammount': request.form.get('ingredient4_ammount'),
-            'ingredient5': request.form.get('ingredient5'),
-            'ingredient5_ammount': request.form.get('ingredient5_ammount'),
-            'ingredient6': request.form.get('ingredient6'),
-            'ingredient6_ammount': request.form.get('ingredient6_ammount'),
-            'ingredient7': request.form.get('ingredient7'),
-            'ingredient7_ammount': request.form.get('ingredient7_ammount'),
-            'ingredient8': request.form.get('ingredient8'),
-            'ingredient8_ammount': request.form.get('ingredient8_ammount'),
-            'ingredient9': request.form.get('ingredient9'),
-            'ingredient9_ammount': request.form.get('ingredient9_ammount'),
-            'ingredient10': request.form.get('ingredient10'),
-            'ingredient10_ammount': request.form.get('ingredient10_ammount'),
-            },
-            
-        'nutrition_info': {
-            'nutrition1': request.form.get('nutrition1'),
-            'nutrition1_ammount': request.form.get('nutrition1_ammount'),
-            'nutrition2': request.form.get('nutrition2'),
-            'nutrition2_ammount': request.form.get('nutrition2_ammount'),
-            'nutrition3': request.form.get('nutrition3'),
-            'nutrition3_ammount': request.form.get('nutrition3_ammount'),
-            'nutrition4': request.form.get('nutrition4'),
-            'nutrition4_ammount': request.form.get('nutrition4_ammount'),
-            'nutrition5': request.form.get('nutrition5'),
-            'nutrition5_ammount': request.form.get('nutrition5_ammount'),
-            'nutrition6': request.form.get('nutrition6'),
-            'nutrition6_ammount': request.form.get('nutrition6_ammount'),
-            'nutrition7': request.form.get('nutrition7'),
-            'nutrition7_ammount': request.form.get('nutrition7_ammount'),
-            'nutrition8': request.form.get('nutrition8'),
-            'nutrition8_ammount': request.form.get('nutrition8_ammount'),
-            'nutrition9': request.form.get('nutrition9'),
-            'nutrition9_ammount': request.form.get('nutrition9_ammount'),
-            'nutrition10': request.form.get('nutrition10'),
-            'nutrition10_ammount': request.form.get('nutrition10_ammount'),
-            
-            },
-            
-        'alergens': {
-            'alergen1': request.form.get('alergen1'),
-            'alergen2': request.form.get('alergen2'),
-            'alergen3': request.form.get('alergen3'),
-            'alergen4': request.form.get('alergen4'),
-            'alergen5': request.form.get('alergen5'),
-            'alergen6': request.form.get('alergen6'),
-            'alergen7': request.form.get('alergen7'),
-            'alergen8': request.form.get('alergen7'),
-            'alergen9': request.form.get('alergen9'),
-            'alergen10': request.form.get('alergen10'),
-            },
-        
+        'ingredients': ingredients,
+        'nutrition_info':nutrition_info,
+        'alergens': alergens
         }
     )
     return redirect(url_for('main_page' ))
@@ -231,11 +174,11 @@ def insert_recipe():
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    ingredients = mongo.db.recipes.find({"ingredients": "ingredient"})
     all_categories =  mongo.db.recipes_categories.find()
     return render_template('edit_recipe.html', recipe = recipe,
-                           recipes_categories=all_categories, ingredient=ingredients)    
+                           recipes_categories=all_categories)    
                            
+
 
 
 
@@ -244,17 +187,33 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     
     recipes =  mongo.db.recipes
+        
     form_data = request.form.copy()
-    ingredient_nr = 1
-    nutrition_nr = 1
-    alergen_nr = 1
-    
+    index = 0
     ingredients= []
     nutrition_info= []
     alergens= []
     
     
- 
+    
+    for input_field in request.form:
+        if input_field[:-1] == "ingredient":
+            ingredients.append(form_data[input_field])
+            del form_data[input_field]
+        if input_field[:-1] == "nutrition":
+                nutrition_info.append(form_data[input_field])
+                del form_data[input_field]
+        if input_field[:-1] == "alergen":
+                alergens.append(input_field)
+                del form_data[input_field]
+        
+        
+        if len(ingredients) > 0:
+            form_data["ingredients"] = ingredients
+        if len(nutrition_info) > 0:
+            form_data["nutrition_info"] = nutrition_info
+        if len(alergens) > 0:
+            form_data["alergens"] = alergens
     
     recipe_dict = recipes.update(
         {"_id": ObjectId(recipe_id)},
@@ -269,73 +228,18 @@ def update_recipe(recipe_id):
             'preparation_time': request.form.get('preparation_time'),
             'recipe_how_to_serve': request.form.get('recipe_how_to_serve'),
             'preparation':request.form.get('preparation'),
-            'ingredients': {
-                'ingredient1': request.form.get('ingredient1'),
-                'ingredient1_ammount': request.form.get('ingredient1_ammount'),
-                'ingredient2': request.form.get('ingredient2'),
-                'ingredient2_ammount': request.form.get('ingredient2_ammount'),
-                'ingredient3': request.form.get('ingredient3'),
-                'ingredient3_ammount': request.form.get('ingredient3_ammount'),
-                'ingredient4': request.form.get('ingredient4'),
-                'ingredient4_ammount': request.form.get('ingredient4_ammount'),
-                'ingredient5': request.form.get('ingredient5'),
-                'ingredient5_ammount': request.form.get('ingredient5_ammount'),
-                'ingredient6': request.form.get('ingredient6'),
-                'ingredient6_ammount': request.form.get('ingredient6_ammount'),
-                'ingredient7': request.form.get('ingredient7'),
-                'ingredient7_ammount': request.form.get('ingredient7_ammount'),
-                'ingredient8': request.form.get('ingredient8'),
-                'ingredient8_ammount': request.form.get('ingredient8_ammount'),
-                'ingredient9': request.form.get('ingredient9'),
-                'ingredient9_ammount': request.form.get('ingredient9_ammount'),
-                'ingredient10': request.form.get('ingredient10'),
-                'ingredient10_ammount': request.form.get('ingredient10_ammount'),
-                
-                },
-            'nutrition_info': {
-            'nutrition1': request.form.get('nutrition1'),
-            'nutrition1_ammount': request.form.get('nutrition1_ammount'),
-            'nutrition2': request.form.get('nutrition2'),
-            'nutrition2_ammount': request.form.get('nutrition2_ammount'),
-            'nutrition3': request.form.get('nutrition3'),
-            'nutrition3_ammount': request.form.get('nutrition3_ammount'),
-            'nutrition4': request.form.get('nutrition4'),
-            'nutrition4_ammount': request.form.get('nutrition4_ammount'),
-            'nutrition5': request.form.get('nutrition5'),
-            'nutrition5_ammount': request.form.get('nutrition5_ammount'),
-            'nutrition6': request.form.get('nutrition6'),
-            'nutrition6_ammount': request.form.get('nutrition6_ammount'),
-            'nutrition7': request.form.get('nutrition7'),
-            'nutrition7_ammount': request.form.get('nutrition7_ammount'),
-            'nutrition8': request.form.get('nutrition8'),
-            'nutrition8_ammount': request.form.get('nutrition8_ammount'),
-            'nutrition9': request.form.get('nutrition9'),
-            'nutrition9_ammount': request.form.get('nutrition9_ammount'),
-            'nutrition10': request.form.get('nutrition10'),
-            'nutrition10_ammount': request.form.get('nutrition10_ammount'),
-            
-            },
-        'alergens': {
-            'alergen1': request.form.get('alergen1'),
-            'alergen2': request.form.get('alergen2'),
-            'alergen3': request.form.get('alergen3'),
-            'alergen4': request.form.get('alergen4'),
-            'alergen5': request.form.get('alergen5'),
-            'alergen6': request.form.get('alergen6'),
-            'alergen7': request.form.get('alergen7'),
-            'alergen8': request.form.get('alergen7'),
-            'alergen9': request.form.get('alergen9'),
-            'alergen10': request.form.get('alergen10'),
-            },
+            "ingredients": form_data["ingredient"],## REPLACE VALUE IN EXISTIN INPUT
+            "nutrition_info": form_data["nutrition"],
+            "alergens": form_data["alergen"]
             
             }
         }
-    
     )
     
     
-    return redirect(url_for('my_recipes', ingredient_nr=ingredient_nr,
-                            nutrition_nr=nutrition_nr, alergen_nr=alergen_nr))
+
+    
+    return redirect(url_for('my_recipes'))
 
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
 def delete_recipe(recipe_id):

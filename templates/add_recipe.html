@@ -2,18 +2,19 @@
  {% include "header.html" %}
 <div class='container header_main_page'>
     <h3> Add your recipe {{user}} </h3>
+    <hr class="divider light my-4">
 </div>
 
 <section class='container add_recipe_content py-5 sm-light'>
     <div class="row">
-        <div class='col-md-10  add_recipe_form_wrapper'>
-            <div class='col-md-3'></div>
-            <form id="form" action='{{url_for("insert_recipe")}}'  method="POST"  class="add_recipe_form col-md-9">
+        <div class='col-md-10 col-lg-10 col-sm-10  add_recipe_form_wrapper'>
+            <div class='col-md-3 col-sm-3 col-lg-3'></div>
+            <form id="form" action='{{url_for("insert_recipe")}}'  method="POST"  class="add_recipe_form col-md-9 col-lg-9 col-sm-9">
                 <div class="row">
                 
 <!----------------------------------------------------RECIPE CATEGORY-->
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 col m12 col l12">
                                 <i class="material-icons prefix">poll</i>
                                 <select id="recipe_category_name" name="recipe_category_name" >
                                     <option value="" disabled selected> <label> Recipe Category</label></option>
@@ -27,7 +28,7 @@
                         
                         
 <!----------------------------------------------------RECIPE NAME -->
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">assignment</i>
                             <input id="recipe_name" name="recipe_name" type="text" maxlength="20">
                             <label for="icon_prefix">Recipe Name</label>
@@ -37,7 +38,7 @@
                  
 <!----------------------------------------------------PREPARATION TIME-->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="preparation_time" id="preparation_time" class="materialize-textarea" maxlength="20"></textarea>
                             <label for="icon_telephone">Preparation time</label>
@@ -47,7 +48,7 @@
                     
 <!----------------------------------------------------COUSINE-->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="cousine" id="cousine" class="materialize-textarea" maxlength="20"></textarea>
                             <label for="icon_telephone">Cousine</label>
@@ -57,7 +58,7 @@
 <!----------------------------------------------------UPLOADED BY -->
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="uploaded_by" id="uploaded_by" class="materialize-textarea" maxlength="15"></textarea>
                             <label for="icon_telephone">Uploaded by </label>
@@ -66,7 +67,7 @@
 <!----------------------------------------------------RECIPE DESCRIPTION-->
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="recipe_description" id="recipe_description" class="materialize-textarea" maxlength="160"></textarea>
                             <label for="icon_telephone">Recipe Description</label>
@@ -76,7 +77,7 @@
 
 <!----------------------------------------------------RECIPE PREPARATION-->
                     <div class="row">
-                        <div class="input-field col s10">
+                        <div class="input-field col s10 col m10 col l10">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="preparation" id="preparation" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Recipe preparation</label>
@@ -86,59 +87,164 @@
 <!----------------------------------------------------RECIPE INGRIEDIENS-->
                     
                     <div class="row">
-                        <label for='icon_telephone' class=' col s12'>INGRIEDIENT NAME</label>
+                        <label for='icon_telephone' class=' col s12 col m12 col l12'>INGRIEDIENT NAME</label>
                         
-                        <div class="col s8" >
-                           <ul id='ingredients' name="ingredients[]">
-                                <li   class='ingredient addIngredient'>
-                                
-                                </li>   
-                            </ul> 
-                        </div>
-                        <div class=" col s8">
-                            <button id="addIngredient" class='add_row_btn_add col s6'   type='button'  onclick='addIngrediens()'>ADD INGRIEDIENS</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeIngrediens()'>REMOVE INGRIEDIENS</button>
+                        <div class="col s8 col m8 col l8" >
+                           
+                               <table class='align-center' id='ingredients' name="ingredients[]">
+                                    <tr>
+                                        <th class='align-center'>Ingredients Name</th>
+                                        <th class='align-center'>Ingredients Ammount</th>
+                                    </tr>
+                                    <tr> 
+                                    
+                                        <td>
+                                             <label for="icon_prefix">ingredient 1</label><input type="text" id="ingredient1" name="ingredient1"/>
+                                        </td>
+                                       
+                                        <td><input type="text" id="ingredient1_ammount" name="ingredient1_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient2" name="ingredient2"/></td>
+                                        <td><input type="text" id="ingredient2_ammount" name="ingredient2_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient3" name="ingredient3"/></td>
+                                        <td><input type="text" id="ingredient3_ammount" name="ingredient3_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient4" name="ingredient4"/></td>
+                                        <td><input type="text" id="ingredient4_ammount" name="ingredient4_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient5" name="ingredient5"/></td>
+                                        <td><input type="text" id="ingredient5_ammount" name="ingredient5_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient6" name="ingredient6"/></td>
+                                        <td><input type="text" id="ingredient6_ammount" name="ingredient6_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient7" name="ingredient7"/></td>
+                                        <td><input type="text" id="ingredient7_ammount" name="ingredient7_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient8" name="ingredient8"/></td>
+                                        <td><input type="text" id="ingredient8_ammount" name="ingredient8_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient9" name="ingredient9"/></td>
+                                        <td><input type="text" id="ingredient9_ammount" name="ingredient9_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient10" name="ingredient10"/></td>
+                                        <td><input type="text" id="ingredient10_ammount" name="ingredient10_ammount"/></td>
+                                    </tr>
+                                </table>
                         </div>
                     </div>
             
                   
 <!----------------------------------------------------NUTRITION INFO -->
                     <div class="row">
-                        <label for="icon_telephone" class=' col s12'>ADD NUTRITION INFO</label>
-                        <div class=" col s8">
-                            <ul id='nutrition_info' class='nutrition_info' name="nutrition_info[]">
-                                <li>
-                             
-                                </li>   
-                            </ul>
-                        </div>
-                        <div class=" col s8">
-                            <button id="addNutrition" class='add_row_btn_add col s6' type='button' form='nutrition_info' onclick='addNutritionInfo()'>ADD INFO</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeNutritionInfo()'>REMOVE INFO</button>
+                        <label for="icon_telephone" class=' col s12 col m12 col l12'>ADD NUTRITION INFO</label>
+                        <div class=" col s8 col m8 col l8">
+                            <table class='align-center' id='nutrition_info' name="nutrition_info">
+                                    <tr>
+                                        <th class='align-center'>Nutrition Name</th>
+                                        <th class='align-center'>Nutrition Ammount</th>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition1" name="nutrition1"/></td>
+                                        <td><input type="text" id="nutrition1_ammount" name="nutrition1_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition2" name="nutrition2"/></td>
+                                        <td><input type="text" id="nutrition2_ammount" name="nutrition2_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition3" name="nutrition3"/></td>
+                                        <td><input type="text" id="nutrition3_ammount" name="nutrition3_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition4" name="nutrition4"/></td>
+                                        <td><input type="text" id="nutrition4_ammount" name="nutrition4_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition5" name="nutrition5"/></td>
+                                        <td><input type="text" id="nutrition5_ammount" name="nutrition5_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition6" name="nutrition6"/></td>
+                                        <td><input type="text" id="nutrition6_ammount" name="nutrition6_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition7" name="nutrition7"/></td>
+                                        <td><input type="text" id="nutrition7_ammount" name="nutrition7_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition8" name="nutrition8"/></td>
+                                        <td><input type="text" id="nutrition8_ammount" name="nutrition8_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition9" name="nutrition9"/></td>
+                                        <td><input type="text" id="nutrition9_ammount" name="nutrition9_ammount"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="nutrition10" name="nutrition10"/></td>
+                                        <td><input type="text" id="nutrition10_ammount" name="nutrition10_ammount"/></td>
+                                    </tr>
+                                </table>
                         </div>
                     </div>
 
                    
 <!----------------------------------------------------ALERENS-->
                     <div class="row">
-                        <label for="icon_telephone" class=' col s12'>ALERENS</label>
-                        <div class="col s8">
-                            <ul id='alergens' class='alergens addAlergen' name='alergens'>
-                                <li>
-                                          
-                                </li>   
-                            </ul>
+                        <label for="icon_telephone" class=' col s12 col m12 col l12'>ALERENS</label>
+                        <div class="col s8 col m8 col l8">
+                            <table  id='alergens' name="alergens">
+                                    <tr>
+                                        <th class='align-center'>ALERGEN NAME</th>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen1" name="alergen1"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen2" name="alergen2"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen3" name="alergen3"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen4" name="alergen4"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen5" name="alergen5"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen6" name="alergen6"/></td>
+                                    </tr>
+                                     <tr> 
+                                        <td class='align-center'><input type="text" id="alergen7" name="alergen7"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alerge8" name="alergen8"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen9" name="alergen9"/></td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='align-center'><input type="text" id="alergen10" name="alergen10"/></td>
+                                    </tr>
+                                </table>
                         </div>  
-                        <div class="col s8">
-                            <button id="addAlergen" class='add_row_btn_add col s6' type='button' form='alergens' onclick='addAlergens()'>ADD ALERGEN</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeAlergens()'>REMOVE ALERGEN</button>
-                        </div>
                     </div>
  
                     
 <!----------------------------------------------------HOW TO SERVE-->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="recipe_how_to_serve" id="recipe_how_to_serve" class="materialize-textarea" maxlength="250"></textarea>
                             <label for="icon_telephone">How to serve</label>
@@ -149,7 +255,7 @@
 <!----------------------------------------------------ADD PICTURE-->
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="recipe_picture_url" id="recipe_picture_url" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Add picture URL</label>
@@ -162,11 +268,11 @@
             
 <!----------------------------------------------------ADD RECIPE  AND CANCEL BTN -->
                 <div class='row'>
-                    <div class='col s3'></div>
+                    <div class='col s3 col m3 col l3'></div>
                     <button class="add_recipe_btn btn btn-sm btn-outline-secondary col s4" type="submit" value="submit" form="form">Add recipe</button>
-                    <div class='col s1'></div>
+                    <div class='col s1 col m1 col l1'></div>
                     <button type="button" onclick="window.location.href='{{ url_for('recipe', recipe_id=recipe_id) }}'" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4">Cancel</button>
-                    <div class='col s3'></div>
+                    <div class='col s3 col m3 col l3'></div>
                 </div>
             </div>
         </div>

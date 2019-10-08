@@ -2,6 +2,7 @@
  {% include "header.html" %}
 <div class='container header_main_page'>
     <h3> Edit your recipe {{user}} </h3>
+    <hr class="divider light my-4">
 </div>
 
 <section class='container add_recipe_content py-5 sm-light'>
@@ -89,17 +90,58 @@
                         <label for='icon_telephone' class=' col s12'>INGRIEDIENT NAME</label>
                         
                         <div class="col s8" >
-                           <ul id='ingredients' name="ingredients[]">
-                               {% for ingredient in recipe.ingredients %}
-                                <li   class='ingredient addIngredient'>
-                                    <input  id='ingredient' name='ingredient' value='{{ingredient}}' class='form-control' required>
-                                </li>   
-                                {% endfor %}
-                            </ul> 
-                        </div>
-                        <div class=" col s8">
-                            <button id="addIngredient" class='add_row_btn_add col s6'   type='button'  onclick='addIngrediens()'>ADD INGRIEDIENS</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeIngrediens()'>REMOVE INGRIEDIENS</button>
+                               <table class='align-center' id='ingredients' name="ingredients[]">
+                                    <tr>
+                                        <th class='align-center'>Ingredients Name</th>
+                                        <th class='align-center'>Ingredients Ammount</th>
+                                    </tr>
+                                    
+                                    <tr> 
+                                        <td>
+                                            <i class="material-icons prefix">assignment</i>
+                                            <input type="text" id="ingredient1" name="ingredient1" value='{{recipe.ingredients.ingredient1}}' >
+                                            <label for="icon_prefix">ingredient 1</label>
+                                        </td>
+                                        <td><input type="text" id="ingredient1_ammount" name="ingredient1_ammount" value='{{recipe.ingredients.ingredient1_ammount}}'></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient2" name="ingredient2" value='{{recipe.ingredients.ingredient2}}' ></td>
+                                        <td><input type="text" id="ingredient2_ammount" name="ingredient2_ammount" value='{{recipe.ingredients.ingredient2_ammount}}' ></td>
+                                    </tr>
+                                    
+                                    <tr> 
+                                        <td><input type="text" id="ingredient3" name="ingredient3" value='{{recipe.ingredients.ingredient3}}' ></td>
+                                        <td><input type="text" id="ingredient3_ammount" name="ingredient3_ammount" value='{{recipe.ingredients.ingredient3_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient4" name="ingredient4" value='{{recipe.ingredients.ingredient4}}' ></td>
+                                        <td><input type="text" id="ingredient4_ammount" name="ingredient4_ammount" value='{{recipe.ingredients.ingredient4_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient5" name="ingredient5" value='{{recipe.ingredients.ingredient5}}' ></td>
+                                        <td><input type="text" id="ingredient5_ammount" name="ingredient5_ammount" value='{{recipe.ingredients.ingredient5_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient6" name="ingredient6" value='{{recipe.ingredients.ingredient6}}' ></td>
+                                        <td><input type="text" id="ingredient6_ammount" name="ingredient6_ammount" value='{{recipe.ingredients.ingredient6_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient7" name="ingredient7" value='{{recipe.ingredients.ingredient7}}' ></td>
+                                        <td><input type="text" id="ingredient7_ammount" name="ingredient7_ammount" value='{{recipe.ingredients.ingredient7_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient8" name="ingredient8" value='{{recipe.ingredients.ingredient8}}' ></td>
+                                        <td><input type="text" id="ingredient8_ammount" name="ingredient8_ammount" value='{{recipe.ingredients.ingredient8_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient9" name="ingredient9" value='{{recipe.ingredients.ingredient9}}' ></td>
+                                        <td><input type="text" id="ingredient9_ammount" name="ingredient9_ammount" value='{{recipe.ingredients.ingredient9_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input type="text" id="ingredient10" name="ingredient10" value='{{recipe.ingredients.ingredient10}}' ></td>
+                                        <td><input type="text" id="ingredient10_ammount" name="ingredient10_ammount" value='{{recipe.ingredients.ingredient10_ammount}}' ></td>
+                                    </tr>
+                                </table>
                         </div>
                     </div>
             
@@ -108,17 +150,53 @@
                     <div class="row">
                         <label for="icon_telephone" class=' col s12'>ADD NUTRITION INFO</label>
                         <div class=" col s8">
-                            <ul id='nutrition_info' class='nutrition_info' name="nutrition_info[]">
-                                {% for nutrition in recipe.nutrition_info %}
-                                <li>
-                                    <input  id='nutrition' name='nutrition' value='{{ nutrition}}' required>
-                                </li>   
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class=" col s8">
-                            <button id="addNutrition" class='add_row_btn_add col s6' type='button' form='nutrition_info' onclick='addNutritionInfo()'>ADD INFO</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeNutritionInfo()'>REMOVE INFO</button>
+                            <table class='align-center' id='nutrition_info' name="nutrition_info">
+                                    <tr>
+                                        <th class='align-center'>NUTRITION NAME</th>
+                                        <th class='align-center'>NUTRITION  AMMOUNT</th>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition1" name="nutrition1" value='{{recipe.nutrition_info.nutrition1}}' ></td>
+                                        <td><input  id="nutrition1_ammount" name="nutrition1_ammount" value='{{recipe.nutrition_info.nutrition1_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition2" name="nutrition2" value='{{recipe.nutrition_info.nutrition2}}' ></td>
+                                        <td><input  id="nutrition2_ammount" name="nutrition2_ammount" value='{{recipe.nutrition_info.nutrition2_ammount}}' ></td>
+                                    </tr>
+                                    
+                                    <tr> 
+                                        <td><input  id="nutrition3" name="nutrition3" value='{{recipe.nutrition_info.nutrition3}}' ></td>
+                                        <td><input  id="nutrition3_ammount" name="nutrition3_ammount" value='{{recipe.nutrition_info.nutrition3_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition4" name="nutrition4" value='{{recipe.nutrition_info.nutrition4}}' ></td>
+                                        <td><input  id="nutrition4_ammount" name="nutrition4_ammount" value='{{recipe.nutrition_info.nutrition4_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition5" name="nutrition1" value='{{recipe.nutrition_info.nutrition5}}' ></td>
+                                        <td><input  id="nutrition5_ammount" name="nutrition5_ammount" value='{{recipe.nutrition_info.nutrition5_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition6" name="nutrition6" value='{{recipe.nutrition_info.nutrition6}}' ></td>
+                                        <td><input  id="nutrition6_ammount" name="nutrition6_ammount" value='{{recipe.nutrition_info.nutrition6_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition7" name="nutrition7" value='{{recipe.nutrition_info.nutrition7}}' ></td>
+                                        <td><input  id="nutrition7_ammount" name="nutrition7_ammount" value='{{recipe.nutrition_info.nutrition7_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition8" name="nutrition8" value='{{recipe.nutrition_info.nutrition8}}' ></td>
+                                        <td><input  id="nutrition8_ammount" name="nutrition8_ammount" value='{{recipe.nutrition_info.nutrition8_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition9" name="nutrition9" value='{{recipe.nutrition_info.nutrition9}}' ></td>
+                                        <td><input  id="nutrition9_ammount" name="nutrition9_ammount" value='{{recipe.nutrition_info.nutritiont9_ammount}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="nutrition10" name="nutrition10" value='{{recipe.nutrition_info.nutrition10}}' ></td>
+                                        <td><input  id="nutrition10_ammount" name="nutrition10_ammount" value='{{recipe.nutrition_info.nutrition10_ammount}}' ></td>
+                                    </tr>
+                                </table>
                         </div>
                     </div>
 
@@ -127,18 +205,42 @@
                     <div class="row">
                         <label for="icon_telephone" class=' col s12'>ALERENS</label>
                         <div class="col s8">
-                            <ul id='alergens' class='alergens addAlergen' >
-                                {% for alergen in recipe.alergens %}
-                                <li>
-                                    <input   value='{{alergen}}' id='alergen' name='alergen' required>     
-                                </li>  
-                                {% endfor %}
-                            </ul>
-                        </div>  
-                        <div class="col s8">
-                            <button id="addAlergen" class='add_row_btn_add col s6' type='button' form='alergens' onclick='addAlergens()'>ADD ALERGEN</button>
-                            <button class='add_row_brn_remove col s6' type='button' onclick='removeAlergens()'>REMOVE ALERGEN</button>
-                        </div>
+                            <table class='align-center' id='alergens' name="alergens">
+                                    <tr>
+                                        <th class='align-center'>ALEREN NAME</th>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen1" name="alergen1" value='{{recipe.alergens.alergen1}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen2" name="alergen2" value='{{recipe.alergens.alergen2}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen3" name="alergen3" value='{{recipe.alergens.alergen3}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen4" name="alergen4" value='{{recipe.alergens.alergen4}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen5" name="alergen5" value='{{recipe.alergens.alergen5}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen6" name="alergen6" value='{{recipe.alergens.alergen6}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen7" name="alergen7" value='{{recipe.alergens.alergen7}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen8" name="alergen8" value='{{recipe.alergens.alergen8}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen9" name="alergen9" value='{{recipe.alergens.alergen9}}' ></td>
+                                    </tr>
+                                    <tr> 
+                                        <td><input  id="alergen10" name="alergen10" value='{{recipe.alergens.alergen10}}' ></td>
+                                    </tr>
+                                </table>
+                        </div> 
                     </div>
  
                     

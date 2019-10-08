@@ -8,13 +8,10 @@ function addIngrediens() {
     j++
     
     var ingredients = $("#ingredients").find(".form-control").length + 1;
-    $("#ingredients").append("<div class='addedInputGroup'><label class='stepLabel' for='ingredient" + ingredients + "'>Ingredient " 
-    + ingredients + "</label><input id='ingredient" + ingredients
+    $("#ingredients").append("<input id='ingredient" + ingredients
     + "' name='ingredient" + ingredients
     + "' type='text' class='addedInput form-control'>");
-   
-
-}
+ }
 
 function removeIngrediens() {
     var ingredient_name = document.getElementById('ingredients');
@@ -33,9 +30,6 @@ function addNutritionInfo() {
     + "' name='nutrition" + nutrition_info
     + "' type='text' class='addedInput form-control'>");
     
-    
-    
-    
 }
 
 function removeNutritionInfo() {
@@ -47,14 +41,11 @@ function removeNutritionInfo() {
 function addAlergens() {
     var j = 0;
     j++
-    
     var alergens = $("#alergens").find(".form-control").length + 1;
     $("#alergens").append("<div class='addedInputGroup'><label class='stepLabel' for='alergen" + alergens + "'>alergen" 
     + alergens + "</label><input id='alergen" + alergens
     + "' name='alergen" + alergens
     + "' type='text' class='addedInput form-control'>");
-    
-    
 }
 
 function removeAlergens() {
