@@ -13,6 +13,42 @@
 }
 
 
+body
+{
+    margin: 0;
+    padding: 0;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    background-color:  #F8F9FA !important;
+    font-family: 'Cabin Condensed', sans-serif;
+    
+}
+
+
+.card_body,
+section.recipe_content_wrapper ,
+.btn-group,
+.btn-view{
+    background-color:  white !important;
+}
+
+
+div.nav-wrapper,
+.nav-tabs-wrapper{
+     background-color: #F8F9FA !important ;
+}
+
+h3 {
+    padding-top: 25px;
+    padding-right: 20px;
+}
+
+p {
+    background-color: white !important;
+    padding: 5px;
+    font-size: 1.2em;
+    line-height: normal;
+}
 
 
 div.container-fluid{
@@ -31,17 +67,20 @@ div.nav-wrapper {
     margin: 0;
     padding: 0;
     height: 100px;
-    border-bottom:1px solid white;
+    
     
 }
 
 .nav-tabs {
-    margin-left: 120px;
+    margin-left: 125px;
     height: 60px;
-    
+    font-size: 1.4rem;
+    line-height: 1.5;
 }
 
 .nav-link {
+    font-size: 1.4rem;
+    line-height: 1.5;
     text-decoration: none;
     color: #5A6466;
     margin-top: 60px;
@@ -62,18 +101,21 @@ div.nav-wrapper {
 
 
 .brand-logo {
-    margin: 20px;
+    border: 1px solid grey;
+    margin-top: 40px;
+    margin-left: 25px;
     padding: 0;
+    border-radius: 50%;
     width: 120px;
     height: 120px;
 }
 
 .brand-logo > img {
-    color: grey;
+    border-radius: 50%;
     text-decoration: none;
-    padding: 10px;
-    width: 50px;
-    height: 50px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
 }
 
 .brand-logo:hover {
@@ -104,7 +146,7 @@ footer > h5 {
 div.introduction_message{
     margin-top: 20px;
     height: 250px;
-    line-height: 1.5em;
+    line-height: 1.5rem;
     padding: 2rem;
     color: black;
     text-shadow: 2px 2px 2px white;
@@ -119,13 +161,16 @@ div.introduction_message_header{
 }
 
 div.log_in_box{
+    width: 250px;
     margin: 0 auto;
     background-color: white;
     height: 340px;
-    width: 300px;
     box-shadow: 1px 1px 1px black;
-    margin-top: 1rem;
     color: black;
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
 }
 
 .log_in_box > form {
@@ -145,7 +190,7 @@ div.log_in_box{
     line-height: 1.375em;
     text-align: center;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 2.5rem;
 }
 
 .log_in_button{
@@ -166,14 +211,16 @@ div.log_in_box{
     font-size: 18px;
     width: 100%;
     padding: 0.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    
 }
 
 
 
 /*-------------------------------------MAIN PAGE */
 
-.button-collapse{
+a.button-collapse{
+    font-size: 24px;
     color: black;
 }
 .header_main_page{
@@ -191,6 +238,7 @@ div.log_in_box{
 /*-------------------------------------RECIPES */
 
 .recipes{
+    background-color: #F8F9FA;
     margin: 0 auto;
     margin-bottom: 100px;
     padding-bottom: 50px;
@@ -201,34 +249,16 @@ div.log_in_box{
     padding-top: 25px;
 }
 
-.recipes,
-div,
-.row,
-p,
-.card,
-.recipe_description,
-.recipe_ingredients,
-.recipe_details,
-.recipe_content_wrapper,
-.recipe_preparation,
-.recipe_how_to_serve,
-.table_alergens,
-.nutrition_info,
-.header_main_page,
-.add_recipe_photo_wrapper,
-.add_recipe_content,
-.add_recipe_form_wrapper,
-.card-wrapper {
-    background-color:  #F8F9FA;
-}
 
 img{
     color: white;
     
 }
+
+
 .card-img-top {
     background-color: rgba(0,0,0,0.2);
-    margin: 1rem;
+    margin: 0;
     height: 250px;
     width: 100%;
     display: block;
@@ -242,6 +272,7 @@ img{
 }
 
 .card-text {
+    background-color:  white;
     word-wrap: break-word;
     margin-bottom: 1rem;
     height: 110px;
@@ -250,6 +281,7 @@ img{
 }
 
 .card_header{
+    background-color:  white;
     font-family: 'Cabin Condensed', sans-serif;
     word-wrap: break-word;
     margin-bottom: 1rem;
@@ -261,6 +293,9 @@ img{
 }
 
 
+
+
+
 .btn-view {
     margin-left: 260px;
     padding-bottom: 5px;
@@ -269,16 +304,9 @@ img{
 
 
 
-
-
-
-
-
 .bon_apetite{
     margin-top: 240px;
 }
-
-
 
 
 
@@ -295,27 +323,18 @@ img{
 }
 
 
-.add_row_btn_add{
-    color: white;
-    background-color: green;
-}
-
-.add_row_brn_remove{
-    color: white;
-    background-color: red;
-}
-
 .add_recipe_form{
     margin-bottom: 100px;
     padding-left: 50px;
     height: auto;
-    
+    font-size: 16rem;
+    line-height: 1.5;
 }
 
 
 div.add_recipe_cancel_btn{
-   margin-top: 100px;
-   margin-bottom: 60px;
+   margin-top: 35px;
+   margin-bottom: 40px;
 }
 
 
@@ -326,27 +345,19 @@ div.add_recipe_cancel_btn{
 
 
 
-
 .recipe_content_wrapper{
     margin-top: 100px;
 }
 
 .recipe_details{
     margin-top: 40px;
-    background-color: #F8F9FA;
+    background-color: white !important;
 }
 
 .recipe_name{
-    margin-bottom: 20px;
-    background-color: #F8F9FA;
+    margin: 10px;
+    background-color: white;
 }
-.descripton_p{
-    font-size: 1em;
-    line-height: 1.375em;
-    background-color: #F8F9FA;
-    padding: 10px 10px;
-}
-
 
 
 /* TABLES   */
@@ -360,7 +371,6 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
   padding: 8px;
   text-align: center;
 }
@@ -376,9 +386,7 @@ td, th {
     text-align:  left;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+
 
 /*-------------------------------------MY RECIPES */
 
@@ -397,7 +405,7 @@ tr:nth-child(even) {
     width: 60px;
     line-height: 24px;
     margin: 5px 5px;
-    padding: 0 0.5em;
+    padding: 0.5em;
 }
 
 .recipe_header {
@@ -409,58 +417,116 @@ tr:nth-child(even) {
 
 
 
+@media (max-width: 576px) {
 
-@media screen and (max-width: 775px) {
-    .brand-logo {
-    margin: 20px 0;
+div.add_recipe_cancel_btn{
+   
+   margin-top: 20px;
+   margin-bottom: 10px;
+}
+
+
+
+
+.add_recipe_btn{
+    margin-top: 10px;
+    
+}
+
+.brand-logo {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    margin-left: 0;
     padding: 0;
     width: 120px;
     height: 120px;
 }
-}
 
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-
-body,
-div
-{
-    font-size: 1rem;
-    font-weight: 400;
+  
+  .nav-tabs {
+    margin-left: 120px;
+    height: 60px;
+    font-size: 1.6rem;
     line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    font-family: 'Cabin Condensed', sans-serif;
+}
+
+.nav-link {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-decoration: none;
+    color: #5A6466;
+    margin-top: 60px;
+    border: 1px solid #5A6466;
+}
+
+div.container.header_main_page {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.button-collapse{
+    font-size: 25px;
+}
+
+div.add_recipe_cancel_btn{
+   margin:  0 auto;
+}
+
+
+.add_recipe_btn{
+    margin-top: 25px;
     
 }
 
-@media (min-width: 576px) {
-  html {
-    font-size: 1.2rem;
-  }
+
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 1.4rem;
-  }
+@media (max-width: 768px) {
+    .brand-logo {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    margin-left: 0;
+    padding: 0;
+    width: 120px;
+    height: 120px;
 }
 
-@media (min-width: 992px) {
-  html {
-    font-size: 1.6rem;
-  }
+div.container.header_main_page {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.button-collapse{
+    font-size: 25px;
+}
+
+
+.bon_apetite{
+    margin-top: 110px;
+    float: right;
 }
 
 
 
 
+.add_recipe_btn{
+    margin-top: 25px;
+    
+}
 
+.dot_avatar{
+    margin-top: 35px;
+    
+    height: 8rem;
+}
+
+.dot_avatar > img {
+    width: 100%;
+    height: 100%;
+}
+
+  
+}
 
 

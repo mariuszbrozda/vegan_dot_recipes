@@ -248,6 +248,8 @@ def update_recipe(recipe_id):
     ingredients= []
     nutrition_info= []
     alergens= []
+    
+    
  
     
     recipe_dict = recipes.update(

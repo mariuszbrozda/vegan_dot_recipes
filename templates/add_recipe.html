@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
  {% include "header.html" %}
-<div class='container header_main_page'>
+<div class='col-md-12 col-lg-12 col-sm-12 header_main_page'>
     <h3> Add your recipe {{user}} </h3>
     <hr class="divider light my-4">
 </div>
@@ -22,7 +22,6 @@
                                       <option value="{{cat.recipe_category_name}}" required>{{cat.recipe_category_name}}</option>
                                       {% endfor %}
                                 </select>
-                                
                             </div>
                         </div>
                         
@@ -77,7 +76,7 @@
 
 <!----------------------------------------------------RECIPE PREPARATION-->
                     <div class="row">
-                        <div class="input-field col s10 col m10 col l10">
+                        <div class="input-field col s12 col m12 col l12">
                             <i class="material-icons prefix">subject</i>
                             <textarea name="preparation" id="preparation" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Recipe preparation</label>
@@ -88,20 +87,14 @@
                     
                     <div class="row">
                         <label for='icon_telephone' class=' col s12 col m12 col l12'>INGRIEDIENT NAME</label>
-                        
-                        <div class="col s8 col m8 col l8" >
-                           
+                        <div class="col s12 col m12 col l12" >
                                <table class='align-center' id='ingredients' name="ingredients[]">
                                     <tr>
                                         <th class='align-center'>Ingredients Name</th>
                                         <th class='align-center'>Ingredients Ammount</th>
                                     </tr>
                                     <tr> 
-                                    
-                                        <td>
-                                             <label for="icon_prefix">ingredient 1</label><input type="text" id="ingredient1" name="ingredient1"/>
-                                        </td>
-                                       
+                                        <td><input type="text" id="ingredient1" name="ingredient1"/></td>
                                         <td><input type="text" id="ingredient1_ammount" name="ingredient1_ammount"/></td>
                                     </tr>
                                     <tr> 
@@ -148,7 +141,7 @@
 <!----------------------------------------------------NUTRITION INFO -->
                     <div class="row">
                         <label for="icon_telephone" class=' col s12 col m12 col l12'>ADD NUTRITION INFO</label>
-                        <div class=" col s8 col m8 col l8">
+                        <div class="col s12 col m12 col l12" >
                             <table class='align-center' id='nutrition_info' name="nutrition_info">
                                     <tr>
                                         <th class='align-center'>Nutrition Name</th>
@@ -202,7 +195,7 @@
 <!----------------------------------------------------ALERENS-->
                     <div class="row">
                         <label for="icon_telephone" class=' col s12 col m12 col l12'>ALERENS</label>
-                        <div class="col s8 col m8 col l8">
+                        <div class="col s12 col m12 col l12" >
                             <table  id='alergens' name="alergens">
                                     <tr>
                                         <th class='align-center'>ALERGEN NAME</th>
@@ -268,11 +261,11 @@
             
 <!----------------------------------------------------ADD RECIPE  AND CANCEL BTN -->
                 <div class='row'>
-                    <div class='col s3 col m3 col l3'></div>
-                    <button class="add_recipe_btn btn btn-sm btn-outline-secondary col s4" type="submit" value="submit" form="form">Add recipe</button>
-                    <div class='col s1 col m1 col l1'></div>
-                    <button type="button" onclick="window.location.href='{{ url_for('recipe', recipe_id=recipe_id) }}'" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4">Cancel</button>
-                    <div class='col s3 col m3 col l3'></div>
+                    <div class='col s3'></div>
+                    <button class="add_recipe_btn btn btn-sm btn-outline-secondary col s4" type="submit" value="submit" name='action' form="form">Update recipe</button>
+                    <div class='col s1'></div>
+                    <button type="button" onclick="window.history.go(-1)" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4">Cancel</button>
+                    <div class='col s3'></div>
                 </div>
             </div>
         </div>

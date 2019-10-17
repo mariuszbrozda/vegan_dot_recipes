@@ -4,14 +4,14 @@
 {% include "header.html" %}
 
 
-<div class='container header_main_page'>
+<div class='col 12 header_main_page'>
     <h3> All recipes</h3>
     <hr class="divider light my-4">
 </div>
 <div class='container recipes py-5 sm-light '>
     <div class="row">
        {% for recipe in recipes %}
-        <div class="card-wrapper col-md-4 col-sm-10">
+        <div class="card-wrapper col-md-4 col-lg-4 col-sm-12">
             <div class="card mb-4 box-shadow">
                 <div class='card_header'>
                     {{recipe.recipe_name}}

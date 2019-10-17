@@ -38,7 +38,7 @@
                     <div class="row recipe_ingredients">
                         <div class=" recipe_ingredients col s12">
                             
-                            <div class=" col s12" id='ingredients'>
+                            <div class=" col s12" >
                                 <table class='align-center' id='ingredients' name="ingredients[]">
                                     <tr>
                                         <th class='align-center'>Ingredients Name</th>
@@ -108,7 +108,7 @@
         <div class='col-md-7 add_recipe_photo_wrapper'>
             <div class='row'>
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top recipe_view_img" data-src="" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
+                    <img class="card-img-top responsive-img recipe_view_img" data-src="" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
                 </div>
             </div>
             
@@ -165,11 +165,9 @@
                                 </table>
                     </div>
                 </div>
-               
     <!-- END NUTRITION--->
         
     <!-- ALERGENS--->
-    
                 <div class='recipe_ingredients col-md-6'>
                     <h3><span class="label center label-default">ALERGENS</span></h3>
                     <div class="row recipe_ingredients">
@@ -213,19 +211,19 @@
             </div>    
     
     <!-- END ALERGENS--->
-            
+
             <div class='row bon_apetite'>
-                <div class='col-md-6'></div>
-                <h3 class='col-md-5'> Bon Apetite !</h3>
-                <div class='col-md-1'></div>
-            </div>
+                <div class='col-md-6 col-sm-6'></div>
+                <h3 class='col-md-5 col-sm-5'> Bon Apetite !</h3>
+                <div class='col-md-1 col-sm-1'></div>
             </div>
         </div>
     </div>
+    
     <div class='row'>
-        <div class='col-md-5'></div>
-            <button type="button" onclick="window.history.go(-1)" class="add_recipe_cancel_btn btn btn-sm btn-outline-secondary col-md-2">Back !</button>
-        <div class='col-md-5'></div>
+        <div class='col s4 col m5 col l5'></div>
+        <button type="button" onclick="window.history.go(-1)" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4 col m2 col l2">Back</button>
+        <div class='col s3 col m5 col l5'></div>
     </div>
 </section>
 
