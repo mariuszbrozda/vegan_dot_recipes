@@ -5,27 +5,14 @@
 <section class='container recipe_content_wrapper'>
     <div class="row">
         <div class='col-md-5 recipe_details'>
-            <div class='recipe_name col-md-5'>
-                <div class='row'>
-                     <h3 class='col-md-12'>{{recipe.recipe_name}}</h3>
-                </div>
-                <div>
-                    <p> Category : {{recipe.recipe_category_name}}</p>
-                </div>
-                <div>
-                    <p> Cousine : {{recipe.cousine}}</p>
-                </div>
-                <div>
-                    <p> Preparation time : {{recipe.preparation_time}}</p>
-                </div>
-                <div>
-                    <p> Views : {{views}}</p>
-                </div>
-                <div>
-                    <p> Uploaded by : {{recipe.uploaded_by}}</p>
-                </div>
-            </div>
-            
+            <div class='recipe_name col-md-12 col-sm-12 col-lg-12'>
+                <h3 class='col-md-12 col-sm-12 col-lg-12'>{{recipe.recipe_name}}</h3>
+                <p> Category : {{recipe.recipe_category_name}}</p>
+                <p> Cousine : {{recipe.cousine}}</p>
+                <p> Preparation time : {{recipe.preparation_time}}</p>
+                <p> Views : {{views}}</p>
+                <p> Uploaded by : {{recipe.uploaded_by}}</p>
+            </div>/
             <div class='row'>
                 <div class='recipe_description col-md-12'>
                     <h3><span class="label label-default">Recipe Description</span></h3>
@@ -107,7 +94,7 @@
         </div>
         <div class='col-md-7 add_recipe_photo_wrapper'>
             <div class='row'>
-                <div class="card mb-4 box-shadow">
+                <div class="card mb-5 box-shadow">
                     <img class="card-img-top responsive-img recipe_view_img" data-src="" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
                 </div>
             </div>

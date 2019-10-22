@@ -2,12 +2,12 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
-from wtforms import Form, BooleanField, StringField, PasswordField, validators
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(22)
-app.config["MONGO_DBNAME"] = 'Vegan_Dot_DB'
-app.config['MONGO_URI'] = "mongodb+srv://root:Latino1@myfirstcluster-wdhib.mongodb.net/Vegan_Dot_DB?retryWrites=true"
+app.config["MONGO_DBNAME"] = os.getenv('MONGO_DBNAME')
+app.config['MONGO_URI'] = os.getenv("MONGO_URI")
 
 
 
@@ -328,8 +328,7 @@ def update_recipe(recipe_id):
     )
     
     
-    return redirect(url_for('my_recipes', ingredient_nr=ingredient_nr,
-                            nutrition_nr=nutrition_nr, alergen_nr=alergen_nr))
+    return redirect(url_for('my_recipes'))
 
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
 def delete_recipe(recipe_id):
