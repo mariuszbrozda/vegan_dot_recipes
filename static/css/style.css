@@ -17,11 +17,18 @@ body
 {
     margin: 0 !important;
     padding: 0 !important;
+    width: 100vw;
     font-size: 1.2em;
     line-height: 1.5;
+    font-weight: 400;
     background-color:  #F8F9FA !important;
-    font-family: 'Cabin Condensed', sans-serif;
-    
+    font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+nav.navbar{
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
 
@@ -37,19 +44,34 @@ div.nav-wrapper,
 .nav-tabs-wrapper{
     margin: 0;
     padding: 0;
-     background-color: #F8F9FA !important ;
+    background-color: #F8F9FA !important ;
 }
 
-h3 {
-    padding-top: 1em;
-  
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
+
+h1{
+  font-size: 3.5em;
+  margin: 0;
+}
+
 
 p {
+    
+    margin-top: 0;
     text-align: justify;
     background-color: white !important;
-    padding: 5px;
     font-size: 1.2em;
+    line-height: 1.5;
+}
+
+
+input {
+    margin: 0 !important;
+    font-size: 1.6em;
     line-height: 1.5;
 }
 
@@ -60,22 +82,20 @@ div.container-fluid{
 }
 
 
-.nav-tabs-wrapper{
-    width: 100vw;
-   
-}
+
 
 div.nav-wrapper {
-    width: 100vw;
+    border-top-color: white;
     margin: 0;
     padding: 0;
     height: 100px;
-    
-    
 }
 
+
+
+
 .nav-tabs {
-    margin-left: 125px;
+    margin-left: 145px;
     height: 60px;
     font-size: 1.4rem;
     line-height: 1.5;
@@ -131,6 +151,7 @@ div.nav-wrapper {
 }
 
 footer {
+    width: 100%;
     margin-top: 40px;
     padding: 0;
     height: 80px;
@@ -199,6 +220,7 @@ div.log_in_box{
 .log_in_button{
     padding: 1rem;
     margin: 0 auto;
+    margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
     height: 50px;
@@ -211,7 +233,8 @@ div.log_in_box{
 
 
 .log_in_box > form > input{
-    font-size: 18px;
+    font-size: 1em;
+    line-height: 1.5;
     width: 100%;
     padding: 0.3rem;
     margin-bottom: 1rem;
@@ -227,7 +250,6 @@ a.button-collapse{
     color: black;
 }
 .header_main_page{
-    font-family: 'Cabin Condensed', sans-serif;
     word-wrap: break-word;
     min-height: 75px;
     text-align: center;
@@ -253,10 +275,16 @@ a.button-collapse{
 }
 
 
-img{
-    color: white;
-    
+.recipe_photo {
+ height: 450px;
+ width: 100%;
+ background: url('http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png');
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;  
 }
+
+
 
 
 .card-img-top {
@@ -285,7 +313,6 @@ img{
 
 .card_header{
     background-color:  white;
-    font-family: 'Cabin Condensed', sans-serif;
     word-wrap: break-word;
     margin-bottom: 1rem;
     font-size: 1.375em;
@@ -295,13 +322,10 @@ img{
     text-align: center;
 }
 
-
-
-
-
 .btn-view {
     margin-left: 260px;
-    padding-bottom: 5px;
+    padding-bottom: 0.5em;
+    padding-top:  0.5em;
     margin: 10px;
 }
 
@@ -310,9 +334,6 @@ img{
 .bon_apetite{
     margin-top: 240px;
 }
-
-
-
 
 
 /*-------------------------------------ADD RECIPES */
@@ -349,10 +370,11 @@ div.add_recipe_cancel_btn{
 
 
 .recipe_content_wrapper{
-    margin-top: 3em;
-    padding-top: 4em;
-    padding-right: 5em;
-    padding-left: 5em;
+    margin-top: 5em;
+    padding-top: 5em;
+    padding-right: 10em;
+    padding-left: 10em;
+    padding-bottom: 6em;
 }
 
 .recipe_details{
@@ -368,11 +390,7 @@ div.add_recipe_cancel_btn{
 }
 
 
-.recipe_name h3{
-    text-align: justify;
-    padding: 2em;
-    margin-left: 0;
-    margin-top: 2em;
+.recipe_name h1{
     background-color: white;
 }
 
@@ -380,16 +398,22 @@ div.add_recipe_cancel_btn{
 
 table {
   margin-top: 20px;
-  font-family: arial, sans-serif;
   border: collapse;
   
   
 }
 
 td, th {
-  border: 1px solid gray;
-  padding: 6px;
-  text-align: center;
+    padding: 0.5em 1em;
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    }
+
+th {
+  background: lightblue;
+  border-color: white;
 }
 
 
@@ -437,13 +461,21 @@ td, th {
 @media (max-width: 576px) {
 
 div.add_recipe_cancel_btn{
-   
    margin-top: 20px;
    margin-bottom: 10px;
 }
 
 
+.recipe_photo_screens_lg{
+    display: none;
+}
 
+.recipe_view_img {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    height: 100%;
+}
 
 .add_recipe_btn{
     margin-top: 10px;
@@ -460,11 +492,11 @@ div.add_recipe_cancel_btn{
 }
 
   
-  .nav-tabs {
-    margin-left: 120px;
-    height: 60px;
-    font-size: 1.6rem;
-    line-height: 1.5;
+.nav-tabs {
+  margin-left: 120px;
+  height: 60px;
+  font-size: 1.6rem;
+  line-height: 1.5;
 }
 
 .nav-link {
@@ -495,16 +527,33 @@ div.add_recipe_cancel_btn{
     
 }
 
+.recipe_name h1{
+    margin-left: 0;
+    padding-left: 0;
+    
+} 
+
 .recipe_content_wrapper{
     margin-top: 150px;
 }
 
+div.recipe_photo_mobile {
+   
+    margin-bottom: 0.5em;
+    margin-top:  0.5em;
+    padding-top: 0;
+    padding-bottom: 0 ;
+}
 
+.recipe_photo{
+    display: inline;
+}
 
 }
 
 @media (max-width: 768px) {
-    .brand-logo {
+
+.brand-logo {
     margin-top: 40px;
     margin-bottom: 25px;
     margin-left: 0;
@@ -512,6 +561,16 @@ div.add_recipe_cancel_btn{
     width: 120px;
     height: 120px;
 }
+
+
+
+
+.recipe_name h1{
+    padding-bottom: 0.5em;
+    padding-left: 0;
+    margin-left: 0;
+    margin: 0;
+} 
 
 div.container.header_main_page {
     margin-left: 0;
@@ -529,8 +588,12 @@ div.container.header_main_page {
     float: right;
 }
 
-
-
+.recipe_view_img {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0 !important;
+    height: 100%;
+}
 
 .add_recipe_btn{
     margin-top: 25px;
@@ -542,8 +605,28 @@ div.container.header_main_page {
     margin-top: 150px;
 }
 
+.recipe_photo_screens_lg{
+    display: none;
+}
 
+div.recipe_photo_mobile {
+    padding-top: 0;
+    padding-bottom: 0 !important;
+    margin-bottom: 0.5em !important;
+    margin-top: 0.5em;
+}
+
+.recipe_photo{
+    display: inline;
+}
   
 }
 
 
+@media (min-width: 768px) {
+     
+     .recipe_photo_mobile {
+        display: none; 
+     }
+     
+}

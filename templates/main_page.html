@@ -1,13 +1,14 @@
 
 {% extends 'base.html'%} {% block content %}
-
 {% include "header.html" %}
 
-
+<!---------------------------------------------------HEADER ALL RECIPES/ MAIN PAGE -->
 <div class='col 12 header_main_page'>
     <h3> All recipes</h3>
     <hr class="divider light my-4">
 </div>
+
+<!---------------------------------------------------CONTENT MAIN PAGE -->
 <div class='container recipes py-5 sm-light '>
     <div class="row">
        {% for recipe in recipes %}
@@ -16,7 +17,7 @@
                 <div class='card_header'>
                     {{recipe.recipe_name}}
                 </div>
-                <img class="card-img-top img"  alt='NO PHOTO' data-src="http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png"  src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
+                <img class="card-img-top img img-fluid" src="{{recipe.recipe_picture_url}}" >
                 <div class="card-body">
                     <h4 class="card-text">{{recipe.recipe_description}}</h4>
                     <div class="d-flex justify-content-between align-items-center">
@@ -30,8 +31,6 @@
        {% endfor %}
     </div>
 </div>
-
-
 {% include "footer.html" %}
 {% endblock %}
 

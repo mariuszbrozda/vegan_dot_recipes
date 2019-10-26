@@ -1,30 +1,43 @@
 {% extends 'base.html' %} {% block content %}
 {% include "header.html" %}
 
-
+<!---------------------------------------------------ECIPE CONTENT -->
 <section class='container recipe_content_wrapper'>
     <div class="row">
+        
+<!--------------------------------------------------RECIPES DETAILS -->
         <div class='col-md-5 recipe_details'>
             <div class='recipe_name col-md-12 col-sm-12 col-lg-12'>
-                <h3 class='col-md-12 col-sm-12 col-lg-12'>{{recipe.recipe_name}}</h3>
+                <h1 >{{recipe.recipe_name}}</h1>
                 <p> Category : {{recipe.recipe_category_name}}</p>
                 <p> Cousine : {{recipe.cousine}}</p>
                 <p> Preparation time : {{recipe.preparation_time}}</p>
                 <p> Views : {{views}}</p>
                 <p> Uploaded by : {{recipe.uploaded_by}}</p>
-            </div>/
+            </div>
+
+<!------------------------------------------------------RECIPES PHOTO  mobile -->
+          
+            
+            <div class="recipe_photo_mobile ">
+                <img class="card-img-top responsive-img recipe_view_img recipe_photo" onerror='this.src="http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"' data-src="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
+            </div>
+            
+            
+<!------------------------------------------------------RECIPES DESCRIPTION -->
             <div class='row'>
                 <div class='recipe_description col-md-12'>
                     <h3><span class="label label-default">Recipe Description</span></h3>
                     <p class='descripton_p'>{{recipe.recipe_description}} </p>
                 </div>
-            </div>    
+            </div> 
+        
+<!--------  --------------------------------------------RECIPES INGREDIENTS -->
             <div class='row'>
                 <div class='recipe_ingredients col-md-12'>
                     <h3><span class="label label-default">Ingredients</span></h3>
                     <div class="row recipe_ingredients">
                         <div class=" recipe_ingredients col s12">
-                            
                             <div class=" col s12" >
                                 <table class='align-center' id='ingredients' name="ingredients[]">
                                     <tr>
@@ -76,7 +89,9 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div> 
+            
+<!------    --  --------------------------------------------RECIPES PREPARATION -->
             <div class='row'>
                 <div class='recipe_preparation col-md-12'>
                     <h3><span class="label label-default">Recipe preparation</span></h3>
@@ -84,7 +99,9 @@
                     {{recipe.preparation}}
                     </p>
                 </div>
-            </div>    
+            </div>  
+            
+<!------    --  --------------------------------------------HOW TO SERVE -->
             <div class='row'>
                 <div class='recipe_how_to_serve col-md-12'>
                     <h3><span class="label label-default">How to serve</span></h3>
@@ -92,112 +109,114 @@
                 </div>
             </div>
         </div>
+
+
+<!------------------------------------------------------RECIPES PHOTO -->
         <div class='col-md-7 add_recipe_photo_wrapper'>
             <div class='row'>
-                <div class="card mb-5 box-shadow">
-                    <img class="card-img-top responsive-img recipe_view_img" data-src="" alt="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
+                <div class="recipe_photo_screens_lg recipe_photo mb-4 box-shadow">
+                   <img class="card-img-top responsive-img recipe_view_img" data-src="" data-holder-rendered="true"  src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
                 </div>
             </div>
             
-    <!-- NUTRITION--->
+<!------------------------------------------------------RECIPES NUTRITION--->
             <div class='row'>
                 <div class='recipe_ingredients col-md-6'>
                     <h3><span class="label center label-default">NUTRITION INFO</span></h3>
                     <div class="row recipe_ingredients">
                         <table class='align-center' id='nutrition_info' name="nutrition_info">
-                                    <tr>
-                                        <th class='align-center'>NUTRITION INFO</th>
-                                        <th class='align-center'>AMMOUNT</th>
-                                    </tr>
-                                    <tr>
-                                        <td>{{recipe.nutrition_info.nutrition1}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition1_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition2}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition2_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition3}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition3_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition4}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition4_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition5}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition5_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition6}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition6_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition7}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition7_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition8}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition8_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition9}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition9_ammount}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.nutrition_info.nutrition10}}</td>
-                                        <td>{{recipe.nutrition_info.nutrition10_ammount}}</td>
-                                    </tr>
-                                </table>
+                            <tr>
+                                <th class='align-center'>NUTRITION INFO</th>
+                                <th class='align-center'>AMMOUNT</th>
+                            </tr>
+                            <tr>
+                                <td>{{recipe.nutrition_info.nutrition1}}</td>
+                                <td>{{recipe.nutrition_info.nutrition1_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition2}}</td>
+                                <td>{{recipe.nutrition_info.nutrition2_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition3}}</td>
+                                <td>{{recipe.nutrition_info.nutrition3_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition4}}</td>
+                                <td>{{recipe.nutrition_info.nutrition4_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition5}}</td>
+                                <td>{{recipe.nutrition_info.nutrition5_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition6}}</td>
+                                <td>{{recipe.nutrition_info.nutrition6_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition7}}</td>
+                                <td>{{recipe.nutrition_info.nutrition7_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition8}}</td>
+                                <td>{{recipe.nutrition_info.nutrition8_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition9}}</td>
+                                <td>{{recipe.nutrition_info.nutrition9_ammount}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.nutrition_info.nutrition10}}</td>
+                                <td>{{recipe.nutrition_info.nutrition10_ammount}}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-    <!-- END NUTRITION--->
-        
-    <!-- ALERGENS--->
+                
+<!------------------------------------------------------RECIPES ALLERGENS -->
                 <div class='recipe_ingredients col-md-6'>
                     <h3><span class="label center label-default">ALERGENS</span></h3>
                     <div class="row recipe_ingredients">
                         <table class='align-center' id='alergens' name="alergens">
-                                    <tr>
-                                        <th class='align-center'>ALERGEN NAME</th>
-                                    </tr>
-                                    <tr>
-                                        <td>{{recipe.alergens.alergen1}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen2}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen3}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen4}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen5}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen6}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen7}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen8}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen9}}</td>
-                                    </tr>
-                                    <tr> 
-                                        <td>{{recipe.alergens.alergen10}}</td>
-                                    </tr>
-                                </table>
+                            <tr>
+                                <th class='align-center'>ALERGEN NAME</th>
+                            </tr>
+                            <tr>
+                                <td>{{recipe.alergens.alergen1}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen2}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen3}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen4}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen5}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen6}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen7}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen8}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen9}}</td>
+                            </tr>
+                            <tr> 
+                                <td>{{recipe.alergens.alergen10}}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>    
     
-    <!-- END ALERGENS--->
+<!------------------------------------------------------BON APETITE TEXT -->
 
             <div class='row bon_apetite'>
                 <div class='col-md-6 col-sm-6'></div>
@@ -206,7 +225,8 @@
             </div>
         </div>
     </div>
-    
+
+<!------------------------------------------------------ BACK BUTTON -->  
     <div class='row'>
         <div class='col s4 col m5 col l5'></div>
         <button type="button" onclick="window.history.go(-1)" class="add_recipe_btn btn btn-sm btn-outline-secondary col s4 col m2 col l2">Back</button>

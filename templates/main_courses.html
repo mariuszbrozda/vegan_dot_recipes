@@ -1,10 +1,13 @@
 {% extends 'base.html'%} {% block content %}
  {% include "header.html" %}
 
+<!---------------------------------------------------HEADER MAIN COURSES -->
 <div class='col 12 header_main_page'>
     <h3> MAIN COURSES</h3>
     <hr class="divider light my-4">
 </div>
+
+<!---------------------------------------------------CONTENT MAIN COURSES -->
 <div class='container recipes py-5 sm-light '>
     <div class="row">
         {% for recipe in main_courses_recipes %}
@@ -28,7 +31,6 @@
        {% endfor %}
     </div> 
 </div>
-
 {% include "footer.html" %}
 {% endblock %}
 

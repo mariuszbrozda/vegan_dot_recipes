@@ -9,18 +9,17 @@ app.secret_key = os.urandom(22)
 app.config["MONGO_DBNAME"] = os.getenv('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.getenv("MONGO_URI")
 
-
-
 mongo = PyMongo(app)
 
 
 ## -------------------------------------------------LOIN PAGE ROUTE ----- 
 
 
-
-
 @app.route("/", methods=["GET", "POST"])
 @app.route("/log_in", methods=["GET", "POST"])
+
+# Function for login that after post request,
+# creates username var in session and redirect to 'main page'
 def log_in():
     if request.method == 'POST':
         session['username'] = request.form['username']
@@ -32,30 +31,44 @@ def log_in():
 ## -------------------------------------------------MAIN PAGE ROUTE -----   
     
 @app.route("/main_page/", methods=["GET", "POST"])
+
+# Function for 'main page' that gets username var from session
+# and finds all recipes in MongoDB recipes collection
 def main_page():
     username = session.get('username')
     recipes = mongo.db.recipes.find()
     return render_template("main_page.html", user=username, recipes=recipes)
 
 
-## ------------------NAV TABS ROUTES -----
+## ------------------STARTER ROUTES -----
 
 @app.route("/starters", methods=["GET", "POST"])
+
+# Function for 'STARTERS' that gets username var from session
+# and finds all STARTERS recipes in MongoDB recipes collection
 def starters():
     username = session.get('username')
     starters_recipes = mongo.db.recipes.find({"recipe_category_name": "Starters"})
     return render_template("starters.html", user=username, starters_recipes=starters_recipes )
     
     
+## ------------------MAIN COURSE ROUTES -----    
 @app.route("/main_courses", methods=["GET", "POST"])
+
+# Function for 'Main courses' that gets username var from session
+# and finds all Main courses recipes in MongoDB recipes collection
 def main_courses():
     username = session.get('username')
     main_courses_recipes = mongo.db.recipes.find({"recipe_category_name": "Main courses"})
     return render_template("main_courses.html", user=username,
                             main_courses_recipes = main_courses_recipes )
     
-    
+
+## ------------------DESERS ROUTES -----    
 @app.route("/desers", methods=["GET", "POST"])
+
+# Function for 'Desers' that gets username var from session
+# and finds all Desers recipes in MongoDB recipes collection
 def desers():
     username = session.get('username')
     desers_recipes = mongo.db.recipes.find({"recipe_category_name": "Desers"})
@@ -63,25 +76,36 @@ def desers():
                            desers_recipes = desers_recipes )
     
     
+## ------------------SMOOTHIES ROUTES -----
 @app.route("/smoothies", methods=["GET", "POST"])
+
+# Function for 'Smoothies' that gets username var from session
+# and finds all Smoothies recipes in MongoDB recipes collection
 def smoothies():
     username = session.get('username')
     smoothies_recipes = mongo.db.recipes.find({"recipe_category_name": "Smoothies"})
     return render_template("smoothies.html", user=username,
                             smoothies_recipes = smoothies_recipes)
     
-    
+
+## ------------------JUICES ROUTES -----   
 @app.route("/juices", methods=["GET", "POST"])
+
+# Function for 'Juices' that gets username var from session
+# and finds all Juices recipes in MongoDB recipes collection
 def juices():
     username = session.get('username')
     juices_recipes = mongo.db.recipes.find({"recipe_category_name": "Juices"})
     return render_template("juices.html", user=username,
                             juices_recipes = juices_recipes )
+  
+  
     
 ## ----------------------------------------------MY RECIPES ROUTE -----     
-
-
 @app.route("/my_recipes", methods=["GET", "POST"])
+
+# Function for 'my recipes' that gets username var from session
+# and finds all recipes uploaded by user in MongoDB recipes collection
 def my_recipes():
     username = session.get('username')
     recipes_uploaded_by_me = mongo.db.recipes.find({})
@@ -89,9 +113,10 @@ def my_recipes():
 
 
 ## ----------------------------------------------RECIPE ROUTE ----- 
-
-
 @app.route("/recipe/<recipe_id>",methods=["GET", "POST"])
+
+# Function for recipe that gets username var from session
+# and finds particular recipe by ID 
 def recipe(recipe_id):
     recipes =  mongo.db.recipes
     recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -104,8 +129,10 @@ def recipe(recipe_id):
 
 
 ## ----------------------------------------------ADD RECIPE ROUTE ----- 
-
 @app.route("/add_recipe", methods=["GET", "POST"])
+
+# Function for adding recipe that gets username var from session
+# and finds all recipe's categories and return add_recipe page
 def add_recipe():
     recipes =  mongo.db.recipes
     username = session.get('username')
@@ -117,8 +144,9 @@ def add_recipe():
 
     
 ## ----------------------------------------------INSERT RECIPE ROUTE -----  
-    
 @app.route('/insert_recipe', methods=['GET', 'POST'])
+
+# Function for inserting recipe(document) to recipe collection.
 def insert_recipe():
     
     recipes =  mongo.db.recipes
@@ -129,8 +157,10 @@ def insert_recipe():
     nutrition_info= []
     alergens= []
     
-   
+  # FOR loop that appends ingredient, nutrition, alergen from inputs to particular arrays
     for input_field in request.form:
+        
+# if statements that check if input value is ingredient, nutrition or alergen
         if input_field[:-1] == "ingredient":
             ingredients.append(form_data[input_field])
             del form_data[input_field]
@@ -141,14 +171,17 @@ def insert_recipe():
                 alergens.append(input_field)
                 del form_data[input_field]
         
-        
+# if statements that check if there are more elements than 0 in  arrays : ingredient, nutrition or alergen    
         if len(ingredients) > 0:
             form_data["ingredients"] = ingredients
         if len(nutrition_info) > 0:
             form_data["nutrition_info"] = nutrition_info
         if len(alergens) > 0:
             form_data["alergens"] = alergens
-        
+            
+
+# Taking values of recipe elements from form and inserting them to recipe collection as a document
+
     recipe_dict = recipes.insert_one(
         {
         'recipe_name':request.form.get('recipe_name'),
@@ -226,30 +259,36 @@ def insert_recipe():
 
 
 
-## ----------------------------------------------EDIT ROUTE -----
+## ----------------------------------------------EDIT/ ROUTE -----
 
 @app.route('/edit_recipe/<recipe_id>')
+
+# Function for edit recipe.
+#Finds recipe by it's ID and return edit_recipe page
 def edit_recipe(recipe_id):
     recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    ingredients = mongo.db.recipes.find({"ingredients": "ingredient"})
     all_categories =  mongo.db.recipes_categories.find()
     return render_template('edit_recipe.html', recipe = recipe,
-                           recipes_categories=all_categories, ingredient=ingredients)    
+                           recipes_categories=all_categories)    
                            
 
 
+## ------------------UPDATE ROUTES -----
+
 
 @app.route('/update_recipe/<recipe_id>', methods=["GET", "POST"])
+
+# Function for update recipe.
 def update_recipe(recipe_id):
     
     recipes =  mongo.db.recipes
     form_data = request.form.copy()
-    
     ingredients= []
     nutrition_info= []
     alergens= []
  
-    
+# Taking values of recipe elements from edit form and updating them in existing recipe document
+
     recipe_dict = recipes.update(
         {"_id": ObjectId(recipe_id)},
         {"$set":
@@ -324,20 +363,18 @@ def update_recipe(recipe_id):
             
             }
         }
-    
     )
-    
-    
     return redirect(url_for('my_recipes'))
 
+
+## ------------------DELETE ROUTES -----
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
+
+# Function for delete recipe with particular ID.
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('my_recipes'))
     
-
-
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
