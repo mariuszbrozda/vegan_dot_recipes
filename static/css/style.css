@@ -1,29 +1,31 @@
+
+
+/* ---------FONTS---------*/
+
+
 @import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Tulpen+One');
-
-
-/* -------------------------END OF CSS RESET ------------*/
-
 
 
 /* ---------MY STYLES ---------*/
 
 /*-------------------------------------BASE HTML */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 
 html,
 body
 {
     margin: 0 !important;
     padding: 0 !important;
-    width: 100vw;
     font-size: 1.2em;
     line-height: 1.5;
     font-weight: 400;
     background-color:  #F8F9FA !important;
     font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 
 nav.navbar{
     padding: 0;
@@ -32,11 +34,8 @@ nav.navbar{
 }
 
 
-.card_body,
-section.recipe_content_wrapper ,
-.btn-group,
-.btn-view{
-    background-color:  white !important;
+object{
+    vertical-align: middle; 
 }
 
 
@@ -47,20 +46,21 @@ div.nav-wrapper,
     background-color: #F8F9FA !important ;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  padding-bottom: 0.5em;
-  margin-bottom: 0.5rem;
+    margin-top: 0;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 }
 
+
 h1{
-  font-size: 3.5em;
-  margin: 0;
+    font-size: 3.5em;
+    margin: 0;
 }
 
 
 p {
-    
     margin-top: 0;
     text-align: justify;
     background-color: white !important;
@@ -76,12 +76,12 @@ input {
 }
 
 
+/*-------------------------------------HEADER / NAV */
+
 div.container-fluid{
     margin: 0;
     padding: 0;
 }
-
-
 
 
 div.nav-wrapper {
@@ -92,14 +92,13 @@ div.nav-wrapper {
 }
 
 
-
-
 .nav-tabs {
     margin-left: 145px;
     height: 60px;
     font-size: 1.4rem;
     line-height: 1.5;
 }
+
 
 .nav-link {
     font-size: 1.4rem;
@@ -111,7 +110,6 @@ div.nav-wrapper {
 }
 
 
-
 .p_user{
     color: #5A6466;
     text-shadow: 1px 1px 1px solid black;
@@ -120,7 +118,6 @@ div.nav-wrapper {
     padding-top: 10px;
     display: block;
 }
-
 
 
 .brand-logo {
@@ -146,22 +143,7 @@ div.nav-wrapper {
     text-decoration: none;
 }
 
-.content {
-    height: 410px;
-}
 
-footer {
-    width: 100%;
-    margin-top: 40px;
-    padding: 0;
-    height: 80px;
-    border-top: 1px solid grey;
-}
-
-footer > h5 {
-    text-align: center;
-    padding: 12px;
-}
 
 
 /*-------------------------------------LOGIN PAGE */
@@ -245,10 +227,18 @@ div.log_in_box{
 
 /*-------------------------------------MAIN PAGE */
 
+
+.content {
+    height: 410px;
+}
+
+
 a.button-collapse{
     font-size: 24px;
     color: black;
 }
+
+
 .header_main_page{
     word-wrap: break-word;
     min-height: 75px;
@@ -259,32 +249,25 @@ a.button-collapse{
 }
 
 
+.card_body,
+section.recipe_content_wrapper ,
+.btn-group,
+.btn-view{
+    background-color:  white !important;
+}
 
-/*-------------------------------------RECIPES */
 
 .recipes{
     background-color: #F8F9FA;
     margin: 0 auto;
     margin-bottom: 100px;
     padding-bottom: 50px;
-    
 }
+
 
 .card-wrapper{
     padding-top: 25px;
 }
-
-
-.recipe_photo {
- height: 450px;
- width: 100%;
- background: url('http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png');
- background-repeat: no-repeat;
- background-position: center;
- background-size: cover;  
-}
-
-
 
 
 .card-img-top {
@@ -295,12 +278,6 @@ a.button-collapse{
     display: block;
 }
 
-.recipe_view_img{
-    margin-top: 120px;
-    margin-bottom: 100px;
-    height: 450px;
-    width: 100%;
-}
 
 .card-text {
     background-color:  white;
@@ -310,6 +287,7 @@ a.button-collapse{
     padding:  2rem;
     text-shadow: 1px 1px solid white;
 }
+
 
 .card_header{
     background-color:  white;
@@ -331,14 +309,8 @@ a.button-collapse{
 
 
 
-.bon_apetite{
-    margin-top: 240px;
-}
-
 
 /*-------------------------------------ADD RECIPES */
-
-
 
 
 .add_recipe_content{
@@ -357,8 +329,8 @@ a.button-collapse{
 
 
 div.add_recipe_cancel_btn{
-   margin-top: 35px;
-   margin-bottom: 40px;
+    margin-top: 35px;
+    margin-bottom: 40px;
 }
 
 
@@ -369,68 +341,7 @@ div.add_recipe_cancel_btn{
 
 
 
-.recipe_content_wrapper{
-    margin-top: 5em;
-    padding-top: 5em;
-    padding-right: 10em;
-    padding-left: 10em;
-    padding-bottom: 6em;
-}
-
-.recipe_details{
-    background-color: white !important;
-}
-
-.recipe_name p{
-    text-align: justify;
-    padding: 2px;
-    font-size: 1.2em;
-    line-height: 1.3;
-    background-color: white;
-}
-
-
-.recipe_name h1{
-    background-color: white;
-}
-
-/* TABLES   */
-
-table {
-  margin-top: 20px;
-  border: collapse;
-  
-  
-}
-
-td, th {
-    padding: 0.5em 1em;
-    width: 5rem;
-    height: 2rem;
-    border: 1px solid #ccc;
-    text-align: center;
-    }
-
-th {
-  background: lightblue;
-  border-color: white;
-}
-
-
-
-
-.align-center{
-    text-align: center;
-}
-
-.align-left{
-    text-align:  left;
-}
-
-
-
 /*-------------------------------------MY RECIPES */
-
 
 
 .btn-my_recipes{
@@ -438,7 +349,6 @@ th {
     margin-left: 20px;
     
 }
-
 
 
 .btn_small {
@@ -455,7 +365,97 @@ th {
 
 
 
+/*-------------------------------------RECIPE */
 
+.recipe_content_wrapper{
+    margin-top: 7em;
+    padding-top: 8em;
+    padding-right: 10em;
+    padding-left: 10em;
+    padding-bottom: 6em;
+}
+
+
+.recipe_details{
+    background-color: white !important;
+}
+
+
+.recipe_name p{
+    text-align: justify;
+    padding: 2px;
+    font-size: 1.2em;
+    line-height: 1.3;
+    background-color: white;
+}
+
+
+.recipe_name h1{
+    background-color: white;
+}
+
+
+.recipe_photo_screens_lg{
+    margin-top: 10em;
+}
+
+
+/* TABLES   */
+
+table {
+    margin-top: 20px;
+    border: collapse;
+  
+  
+}
+
+td, th {
+    padding: 0.5em 1em;
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    }
+
+th {
+    background: lightblue;
+    border-color: white;
+}
+
+
+.align-center{
+    text-align: center;
+}
+
+
+.align-left{
+    text-align:  left;
+}
+
+
+.bon_apetite{
+    margin-top: 240px;
+}
+
+
+/*-------------------------------------FOOTER */
+
+footer {
+    width: 100%;
+    margin-top: 40px;
+    padding: 0;
+    height: 80px;
+    border-top: 1px solid grey;
+}
+
+footer > h5 {
+    text-align: center;
+    padding: 12px;
+}
+
+
+
+/*-------------------------------------MEDIA QUERIES */
 
 
 @media (max-width: 576px) {
@@ -470,17 +470,11 @@ div.add_recipe_cancel_btn{
     display: none;
 }
 
-.recipe_view_img {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-bottom: 0;
-    height: 100%;
-}
 
 .add_recipe_btn{
     margin-top: 10px;
-    
 }
+
 
 .brand-logo {
     margin-top: 40px;
@@ -493,11 +487,12 @@ div.add_recipe_cancel_btn{
 
   
 .nav-tabs {
-  margin-left: 120px;
-  height: 60px;
-  font-size: 1.6rem;
-  line-height: 1.5;
+    margin-left: 120px;
+    height: 60px;
+    font-size: 1.6rem;
+    line-height: 1.5;
 }
+
 
 .nav-link {
     font-size: 1.6rem;
@@ -508,14 +503,17 @@ div.add_recipe_cancel_btn{
     border: 1px solid #5A6466;
 }
 
+
 div.container.header_main_page {
     margin-left: 0;
     margin-right: 0;
 }
 
+
 .button-collapse{
     font-size: 25px;
 }
+
 
 div.add_recipe_cancel_btn{
    margin:  0 auto;
@@ -524,32 +522,29 @@ div.add_recipe_cancel_btn{
 
 .add_recipe_btn{
     margin-top: 25px;
-    
+   
 }
 
 .recipe_name h1{
     margin-left: 0;
     padding-left: 0;
-    
 } 
 
 .recipe_content_wrapper{
     margin-top: 150px;
 }
 
+
 div.recipe_photo_mobile {
-   
-    margin-bottom: 0.5em;
+    min-height: 18em;
+    margin-bottom: 1em;
     margin-top:  0.5em;
-    padding-top: 0;
-    padding-bottom: 0 ;
+    padding-top: 0.5em;
+    padding-bottom: 0;
+}
 }
 
-.recipe_photo{
-    display: inline;
-}
 
-}
 
 @media (max-width: 768px) {
 
@@ -562,15 +557,13 @@ div.recipe_photo_mobile {
     height: 120px;
 }
 
-
-
-
 .recipe_name h1{
     padding-bottom: 0.5em;
     padding-left: 0;
     margin-left: 0;
     margin: 0;
 } 
+
 
 div.container.header_main_page {
     margin-left: 0;
@@ -588,16 +581,9 @@ div.container.header_main_page {
     float: right;
 }
 
-.recipe_view_img {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-bottom: 0 !important;
-    height: 100%;
-}
 
 .add_recipe_btn{
     margin-top: 25px;
-    
 }
 
 
@@ -605,28 +591,26 @@ div.container.header_main_page {
     margin-top: 150px;
 }
 
+
 .recipe_photo_screens_lg{
     display: none;
 }
 
-div.recipe_photo_mobile {
-    padding-top: 0;
-    padding-bottom: 0 !important;
-    margin-bottom: 0.5em !important;
-    margin-top: 0.5em;
-}
 
-.recipe_photo{
-    display: inline;
+div.recipe_photo_mobile {
+    min-height: 18em;
+    margin-bottom: 0.5em;
+    margin-top:  1em;
+    padding-top: 0.5em;
+    padding-bottom: 0;
 }
-  
 }
 
 
 @media (min-width: 768px) {
-     
-     .recipe_photo_mobile {
-        display: none; 
-     }
+    
+.recipe_photo_mobile {
+    display: none; 
+}
      
 }

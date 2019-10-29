@@ -18,11 +18,11 @@
 
 <!------------------------------------------------------RECIPES PHOTO  mobile -->
           
-            
-            <div class="recipe_photo_mobile ">
-                <img class="card-img-top responsive-img recipe_view_img recipe_photo" onerror='this.src="http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"' data-src="" src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
+            <div class='row'>
+                <object class='recipe_photo_mobile' data='{{recipe.recipe_picture_url}}' width='100%' height='auto'>
+                    <img  src="https://bilety.teatrroma.pl/images/layout/no-image.png" width='100%' height='auto' >
+                </object>
             </div>
-            
             
 <!------------------------------------------------------RECIPES DESCRIPTION -->
             <div class='row'>
@@ -114,9 +114,9 @@
 <!------------------------------------------------------RECIPES PHOTO -->
         <div class='col-md-7 add_recipe_photo_wrapper'>
             <div class='row'>
-                <div class="recipe_photo_screens_lg recipe_photo mb-4 box-shadow">
-                   <img class="card-img-top responsive-img recipe_view_img" data-src="" data-holder-rendered="true"  src="{{recipe.recipe_picture_url}}" data-holder-rendered="true">
-                </div>
+                <object class='recipe_photo_screens_lg' data='{{recipe.recipe_picture_url}}' width='100%' height='auto'>
+                    <img  src="https://bilety.teatrroma.pl/images/layout/no-image.png"  width='100%' height='auto' >
+                </object>
             </div>
             
 <!------------------------------------------------------RECIPES NUTRITION--->

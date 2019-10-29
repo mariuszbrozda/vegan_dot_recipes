@@ -34,7 +34,7 @@ There is also 'log out' tab and users can use it to log out from website anytime
 The navigation is usefull and simple for user. It makes a user-friendy page and easy to searching through website content.
 
 
-# USER'S STORIES :
+USER'S STORIES :
 
 As a vegan person I want to find information about vegan recipes so that I can cook my vegan food at home
  -After log in user can search recipes and also share his/her own meals ideas with others.
@@ -46,7 +46,7 @@ As a person on diet I want to find information about nutrition facts so I can ke
  -All recipes have nutrition info table in which users can check all nutrition facts. For example ammount of proteins in meal.
  
 
-# FEATURES 
+FEATURES 
 
 Meals category tabs feature
 Website has a seperate tabs for each meal category which is very helpfull for searching recipes. 
@@ -82,7 +82,7 @@ Log in/Log out feature
 User is able to login and log out to the website and full authentication is added.
 
 
-# FEATURES LEFT TO IMPLEMENT
+FEATURES LEFT TO IMPLEMENT
 
 Social media sharing feature
 Let user post and share recipes on social media
@@ -95,7 +95,7 @@ User will be able to log in to his/her account to use full content of website, k
 After clicking on user name tab User will be redirected to his/her profile.
 
 
-# TECHNOLOGIES USED
+TECHNOLOGIES USED
 
 Python - To create backend and add functionalities to project.
 
@@ -112,7 +112,7 @@ Google Fonts - To add some fonts.
 Materialize framework  - To create responsive layout and add some design and components LINK ( https://materializecss.com/ )
 
 
-# TESTING
+TESTING
 
 
 Application was tested manually by pretending to be a user.
@@ -151,7 +151,7 @@ Media query and bootstrap responsive classes were used to achieve that. Projects
 It was tested also by changing size of browser window. Application was tested after each functionality was added to it.
 
 
-# DATABASE SCHEMA
+DATABASE SCHEMA
 
 The database is structured with two collections, recipes and recipes_categories. 
 The two collections are related as recipes contains a 'recipe_category_name' key that corresponds the recipes_categories documents.
@@ -160,7 +160,7 @@ Nutrition table, alergens table and ingredients table are stored as an seperate 
 An example of a recipe document can be found in /static/img/recipes_schema_example.png
 A recipes categories schema document can be found in /static/img/recipes_categories_schema.png
 
-# DEPLOYMENT
+DEPLOYMENT
 
 The project was deployed on Heroku platform under link : LINK 
 
