@@ -162,7 +162,7 @@ A recipes categories schema document can be found in /static/img/recipes_categor
 
 DEPLOYMENT
 
-The project was deployed on Heroku platform under link : LINK 
+The project was deployed on Heroku platform under link : https://vegan-dot-recipes.herokuapp.com/
 
 COMMANDS USED TO DEPLOY PROJECT TO HEROKU:
 
@@ -172,7 +172,6 @@ git commit -m'' (to commit changes and add message)
 heroku login (To log in to heroku platform)
 heroku ps:scale web=1 (to run app on heroku)
 git push heroku master ( to push local repository to heroku)
-
 
 The project was deployed to Heroku with config vars:
 
