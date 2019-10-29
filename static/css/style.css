@@ -330,11 +330,13 @@ section.recipe_content_wrapper ,
 
 div.add_recipe_cancel_btn{
     margin-top: 35px;
+    width:  200px;
     margin-bottom: 40px;
 }
 
 
 .add_recipe_btn{
+    width: 200px;
     margin-top: 10px;
     
 }
@@ -460,20 +462,11 @@ footer > h5 {
 
 @media (max-width: 576px) {
 
-div.add_recipe_cancel_btn{
-   margin-top: 20px;
-   margin-bottom: 10px;
-}
-
 
 .recipe_photo_screens_lg{
     display: none;
 }
 
-
-.add_recipe_btn{
-    margin-top: 10px;
-}
 
 
 .brand-logo {
@@ -514,16 +507,6 @@ div.container.header_main_page {
     font-size: 25px;
 }
 
-
-div.add_recipe_cancel_btn{
-   margin:  0 auto;
-}
-
-
-.add_recipe_btn{
-    margin-top: 25px;
-   
-}
 
 .recipe_name h1{
     margin-left: 0;
@@ -579,11 +562,6 @@ div.container.header_main_page {
 .bon_apetite{
     margin-top: 110px;
     float: right;
-}
-
-
-.add_recipe_btn{
-    margin-top: 25px;
 }
 
 
