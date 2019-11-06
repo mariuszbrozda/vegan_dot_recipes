@@ -48,37 +48,37 @@ As a person on diet I want to find information about nutrition facts so I can ke
 
 FEATURES 
 
-Meals category tabs feature
+Meals category tabs feature - 
 Website has a seperate tabs for each meal category which is very helpfull for searching recipes. 
 By clicking tab name, user can find recipes from particular category.
 For example tab 'Desers' will return only desers meals.
 After user clicks name of category tab, find() function is executed and all recipes from that category are returned (based on query filter).
 
 
-Add recipe feature(Create)
+Add recipe feature(Create) - 
 By filling out a form in upload recipe template, user can add a recipe to the database and the website using MongoDB insert-one() function(by clicking 'upload recipe' button). 
 
 
-Find Recipe feature(Read)
+Find Recipe feature(Read) - 
 When user clicks 'view' button to see recipe, find() function is executed to find requested recipe. To locate particular recipe MongoDB uses object ID. 
 User is redirected to the recipe's page where information from the database is presented in a readable format to the user.
 
 
-Edit recipe feature(Update)
+Edit recipe feature(Update) - 
 In 'my recipes' tab, user can find each uploaded recipes. By clicking edit button in particular recipe card, user can edit recipes uploaded on the website before.
 It will redirect him/her to edit form on which updates can be done. After making changes and click 'update recipe' button, update() function is executed and changes are updated in Mongo database collection. 
 To find particular recipe and its entry MongoDB uses objectid.
 
 
-Delete Recipe(Delete) feature
+Delete Recipe(Delete) feature - 
 Each recipe can be deleted in 'My recipes' tab, by clickinghas a 'Delete Recipe' button found at the bottom of the page. Once clicked it uses the remove() mongoDB method.
 
 
-My recipes feature
+My recipes feature - 
 Each recipe uploaded by user can be managed in 'My recipes' tab. User can view, edit or delete recipe from website and MongoDB collection. 
 
 
-Log in/Log out feature
+Log in/Log out feature - 
 User is able to login and log out to the website and full authentication is added.
 
 
@@ -97,7 +97,7 @@ After clicking on user name tab User will be redirected to his/her profile.
 
 TECHNOLOGIES USED
 
-Python - To create backend and add functionalities to project.
+Python - To create backend and add functionalities to project. LINK https://www.python.org/
 
 HTML - To create basic structure of the project LINK ( https://www.w3schools.com/html/ )
 
@@ -178,4 +178,16 @@ The project was deployed to Heroku with config vars:
 IP = 0.0.0.0
 PORT = 5000
 
-There are no differences between the development and deployed versions.
+The development and deployed versions are the same.
+
+CREDITS
+
+Code for appends ingredient, nutrition, alergen from inputs to particular arrays and
+check if there are more elements than 0 in  arrays : ingredient, nutrition or alergen was taken from : https://github.com/Code-Institute-Submissions/cookbook-7/blob/master/app.py
+and changed and adopted to my project.
+
+Logo was taken from instagram profile https://www.instagram.com/vegan_dot/?hl=en My project will be linked to it in future.
+
+
+
+
